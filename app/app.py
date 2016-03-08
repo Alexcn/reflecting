@@ -22,8 +22,8 @@ bootstrap = Bootstrap(app)
 moment = Moment(app)
 
 class NameForm(Form):
-    name = StringField('What is your name?', validators=[Required])
-    submit = SubmitField('submit')
+    name = StringField('What is your name?', validators=[Required()])
+    submit = SubmitField('Submit')
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
@@ -32,7 +32,7 @@ def index():
     if form.validate_on_submit():
         name = form.name.data
         form.name.date = ''
-    return render_template('index', form=form, name=name)
+    return render_template('index.html', form=form, name=name)
     #return render_template('index.html', current_time=datetime.utcnow())
 
 
