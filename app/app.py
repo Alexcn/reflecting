@@ -12,6 +12,7 @@ from datetime import datetime
 from flask.ext.wtf import Form
 from wtforms import StringField, SubmitField
 from wtforms.validators import Required
+from flask import Flask, render_template, session, redirect, url_for
 
 
 app = Flask(__name__)
@@ -27,12 +28,10 @@ class NameForm(Form):
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
-    name = None
     form = NameForm()
     if form.validate_on_submit():
-        name = form.name.data
-        form.name.date = ''
-    return render_template('index.html', form=form, name=name)
+        session['name'] = form.name.data
+    return render_template('index.html', form=form, name=session.get('name'))
     #return render_template('index.html', current_time=datetime.utcnow())
 
 
