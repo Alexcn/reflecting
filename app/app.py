@@ -1,11 +1,8 @@
 #!/usr/bin/env python3
 # -*- encoding: utf-8 -*-
 
-from flask import Flask
 from flask import request
 from flask import make_response
-from flask import redirect
-from flask import render_template
 from flask.ext.bootstrap import Bootstrap
 from flask.ext.moment import Moment
 from datetime import datetime
@@ -15,7 +12,7 @@ from wtforms.validators import Required
 from flask import Flask, render_template, session, redirect, url_for, flash
 from flask.ext.sqlalchemy import SQLAlchemy
 import os
-from flask.ext.script import Manager
+from flask.ext.script import Manager, Shell
 
 basedir = os.path.abspath(os.path.dirname(__file__))
 
@@ -49,6 +46,13 @@ class User(db.Model):
 
     def __repr__(self):
         return '<User %r>' % self.username
+
+
+def make_shell_context():
+    return dict(app=app, db=db, User=User, Role=Role)
+
+
+manager.add_command("shell", Shell(make_context=make_shell_context))
 
 
 class NameForm(Form):
@@ -107,5 +111,4 @@ def redirect_to():
         return redirect('http://www.sina.com.cn')
 
 if __name__ == '__main__':
-    db.create_all()
     manager.run()
