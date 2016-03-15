@@ -13,6 +13,7 @@ from flask import Flask, render_template, session, redirect, url_for, flash
 from flask.ext.sqlalchemy import SQLAlchemy
 import os
 from flask.ext.script import Manager, Shell
+from flask.ext.migrate import Migrate, MigrateCommand
 
 basedir = os.path.abspath(os.path.dirname(__file__))
 
@@ -22,6 +23,8 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(basedir, 'da
 app.config['SQLALCHEMY_COMMIT_ON_TEARDOWN'] = True
 db = SQLAlchemy(app)
 manager = Manager(app)
+migrate = Migrate(app, db)
+manager.add_command('db', MigrateCommand)
 
 
 bootstrap = Bootstrap(app)
