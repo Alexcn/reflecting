@@ -14,6 +14,9 @@ from flask.ext.sqlalchemy import SQLAlchemy
 import os
 from flask.ext.script import Manager, Shell
 from flask.ext.migrate import Migrate, MigrateCommand
+from flask.ext.mail import Mail
+mail = Mail(app)
+
 
 basedir = os.path.abspath(os.path.dirname(__file__))
 
@@ -21,6 +24,13 @@ app = Flask(__name__)
 app.config['SECRET_KEY'] = 'hard to guess string'
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(basedir, 'data.sqlite')
 app.config['SQLALCHEMY_COMMIT_ON_TEARDOWN'] = True
+
+app.config['MAIL_SERVER'] = 'smtp.googlemail.com'
+app.config['MAIL_PORT'] = 587
+app.config['MAIL_USE_TLS'] = True
+app.config['MAIL_USERNAME'] = os.environ.get('MAIL_USERNAME')
+app.config['MAIL_PASSWORD'] = os.environ.get('MAIL_PASSWORD')
+mail = Mail(app)
 db = SQLAlchemy(app)
 manager = Manager(app)
 migrate = Migrate(app, db)
