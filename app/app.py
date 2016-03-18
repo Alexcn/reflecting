@@ -15,6 +15,8 @@ import os
 from flask.ext.script import Manager, Shell
 from flask.ext.migrate import Migrate, MigrateCommand
 from flask.ext.mail import Mail
+from threading import Thread
+
 mail = Mail(app)
 
 
@@ -41,6 +43,12 @@ manager.add_command('db', MigrateCommand)
 
 bootstrap = Bootstrap(app)
 moment = Moment(app)
+
+
+# 异步发送电子邮件
+def send_async_email(app, msg):
+    with app.app_context():
+        mail.send(msg)
 
 
 def send_mail(to, subject, templete, **kargs):
