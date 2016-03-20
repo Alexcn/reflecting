@@ -1,1 +1,17 @@
-# 这里面列出来的是项目依赖的一些模块
+Flask
+Flask-Bootstrap
+Flask-Mail
+Flask-Migrate
+Flask-Moment
+Flask-SQLAlchemy
+Flask-Script
+Flask-WTF
+Jinja2
+Mako
+MakeupSafe
+SQLAlchemy
+WTForms
+Werkzeug
+alembic
+blinker
+itsdangerous
