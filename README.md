@@ -1,3 +1,7 @@
-# reflecting
-开源博客系统。深感网络上开源的博客系统无法满足我的要求，因此决定自己开发。
-改进选择日期的功能，使其操作尽量快速高效
+Flasky
+======
+
+This repository contains the source code examples for my O'Reilly book [Flask Web Development](http://www.flaskbook.com).
+
+The commits and tags in this repository were carefully created to match the sequence in which concepts are presented in the book. Please read the section titled "How to Work with the Example Code" in the book's preface for instructions.
+
