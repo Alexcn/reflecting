@@ -1,10 +1,12 @@
 from flask.ext.sqlalchemy import SQLAlchemy
+from flask.ext.migrate import Migrate, MigrateCommand
 from app import app
 
 
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://username:password@hostname/database'
 app.config['SQLALCHEMY_COMMIT_ON_TEARDOWN'] = True
 db = SQLAlchemy(app)
+migrate = Migrate(app, db)
 
 
 class Role(db.Model):
