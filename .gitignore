@@ -8,3 +8,4 @@ migrations/__pycache__/*
 config/database.yml
 .idea/*
 tmp/*
+*.db
