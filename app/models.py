@@ -1,9 +1,10 @@
+# -*- encoding: utf-8 -*-
 from app import db
 
 
 class Role(db.Model):
     __tablename__ = 'roles'
-    id = db.Column(db.Sequence, primary_key=True)
+    id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(64))
 
     def __repr__(self):
@@ -28,7 +29,7 @@ class User(db.Model):
 
 class Article(db.Model):
     __tablename__ = 'articles'
-    id = db.Column(db.Sequence, primary_key=True)
+    id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(256), index=True)
     content = db.Column(db.TEXT)
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
