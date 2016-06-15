@@ -1,12 +1,4 @@
-from flask.ext.sqlalchemy import SQLAlchemy
-from flask.ext.migrate import Migrate, MigrateCommand
-from app import app
-
-
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://username:password@hostname/database'
-app.config['SQLALCHEMY_COMMIT_ON_TEARDOWN'] = True
-db = SQLAlchemy(app)
-migrate = Migrate(app, db)
+from app import db
 
 
 class Role(db.Model):
@@ -21,13 +13,14 @@ class Role(db.Model):
 # usertype 类型需要外键关联到 roles 表
 class User(db.Model):
     __tablename__ = 'users'
-    id = db.Column(db.Sequence, primary_key=True)
+    # id = db.Column(db.Sequence, primary_key=True)
+    id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(64), index=True)
-    usertype = db.Column()
+    usertype = db.Column(db.Integer, db.ForeignKey('roles.id'))
     birthday = db.Column(db.DATE)
     address = db.Column(db.String(256))
-    email = db.Column(db.String(64))
-    phone = db.Column(db.CHAR(16))
+    email = db.Column(db.String(64), unique=True)
+    phone = db.Column(db.CHAR(16), unique=True)
 
     def __repr__(self):
         return '<User %r>' % self.username
@@ -38,4 +31,11 @@ class Article(db.Model):
     id = db.Column(db.Sequence, primary_key=True)
     title = db.Column(db.String(256), index=True)
     content = db.Column(db.TEXT)
+    user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
+    timestamp = db.Column(db.DateTime)
+
+    def __repr__(self):
+        return '<Post %r>' % self.title
+
+
 

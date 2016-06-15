@@ -4,3 +4,5 @@
     -- pip3 install flask-bootstrap
     -- pip3 install flask-moment
     -- pip3 install flask-wrf
+    -- pip3 install flask-sqlalchemy
+    -- pip3 install flask-migrate
