@@ -1,1 +1,8 @@
-Flask==0.10.1
+Flask
+Flask-Script
+jinja2
+flask-bootstrap
+flask-moment
+flask-WTF
+flask-sqlalchemy
+flask-migrate
