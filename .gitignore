@@ -10,3 +10,4 @@ config/database.yml
 tmp/*
 *.db
 venv
+.DS_Store
