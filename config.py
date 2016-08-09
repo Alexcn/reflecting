@@ -11,9 +11,6 @@ except:
 db_config_stream = open('./config/database.yml', 'r')
 db_config = load(db_config_stream, Loader=Loader)
 db_config_stream.close()
-
-print(db_config['development']['database'])
-
 basedir = os.path.abspath(os.path.dirname(__file__))
 
 
