@@ -14,11 +14,9 @@ db_config_stream.close()
 basedir = os.path.abspath(os.path.dirname(__file__))
 
 
-CSRF_ENABLED = True
-SECRET_KEY = 'hv0cOb3jfnsRpYAumjutQfgeD9Cs2vQL'
-
-
 class Config:
+    CSRF_ENABLED = True
+    SECRET_KEY = 'hv0cOb3jfnsRpYAumjutQfgeD9Cs2vQL'
     SECRET_KEY = os.environ.get('SECRET_KEY') or SECRET_KEY
     SQLALCHEMY_COMMIT_ON_TEARDOWN = True
     FLASKY_MAIL_SUBJECT_PREFIX = '[reflecting]'
