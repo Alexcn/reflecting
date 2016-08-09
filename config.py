@@ -15,8 +15,12 @@ basedir = os.path.abspath(os.path.dirname(__file__))
 
 
 class Config:
-    CSRF_ENABLED = True
     SECRET_KEY = 'hv0cOb3jfnsRpYAumjutQfgeD9Cs2vQL'
+    MAIL_SERVER = 'smtp.googlemail.com'
+    MAIL_PORT = 587
+    MAIL_USE_TLS = True
+    MAIL_USERNAME = os.environ.get('MAIL_USERNAME')
+    MAIL_PASSWORD = os.environ.get('MAIL_PASSWORD')
     SECRET_KEY = os.environ.get('SECRET_KEY') or SECRET_KEY
     SQLALCHEMY_COMMIT_ON_TEARDOWN = True
     FLASKY_MAIL_SUBJECT_PREFIX = '[reflecting]'
@@ -30,11 +34,6 @@ class Config:
 
 class DevelopmentConfig(Config):
     DEBUG = True
-    MAIL_SERVER = 'smtp.googlemail.com'
-    MAIL_PORT = 587
-    MAIL_USE_TLS = True
-    MAIL_USERNAME = os.environ.get('MAIL_USERNAME')
-    MAIL_PASSWORD = os.environ.get('MAIL_PASSWORD')
 
     SQLALCHEMY_DATABASE_URI = 'postgresql://{username}:{password}@{host}:{port}/{dbname}'.format(
         username=db_config['development']['username'],
