@@ -20,6 +20,7 @@ class User(db.Model):
     role_id = db.Column(db.Integer, db.ForeignKey('roles.id'))
     role = db.relationship('Role', backref=db.backref('users', lazy='dynamic'))
 
+
     def __repr__(self):
         return '<User %r>' % self.username
 
@@ -39,12 +40,12 @@ class UserLog(db.Model):
 class Article(db.Model):
     __tablename__ = 'articles'
     id = db.Column(db.Integer, primary_key=True)
-    title = db.Column(db.String, index=True, Comment='文章的标题')
-    content = db.Column(db.Text, Comment='文章的内容')
-    author_id = db.Column(db.Integer, db.ForeignKey('users.id'), Comment='文章作者的ID')
-    created_at = db.Column(db.TIMESTAMP, Comment='文章创建的时间')
-    updated_at = db.Column(db.TIMESTAMP, Comment='文章最近一次修改的时间')
-    status = db.Column(db.SMALLINT, Comment='1: 发表; 2: 草稿; 3: 审核; 4: 删除')
+    title = db.Column(db.String, index=True)
+    content = db.Column(db.Text)
+    author_id = db.Column(db.Integer, db.ForeignKey('users.id'))
+    created_at = db.Column(db.TIMESTAMP)
+    updated_at = db.Column(db.TIMESTAMP)
+    status = db.Column(db.SMALLINT)
 
 
 class Comment(db.Model):

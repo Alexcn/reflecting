@@ -24,7 +24,7 @@ class Config:
     FLASKY_ADMIN = os.environ.get('FLASKY_ADMIN')
 
     @staticmethod
-    def init_app():
+    def init_app(app):
         pass
 
 
