@@ -1,12 +1,9 @@
-# -*- encoding: utf-8 -*-
-
 from flask import Flask
 from flask.ext.bootstrap import Bootstrap
 from flask.ext.mail import Mail
 from flask.ext.moment import Moment
 from flask.ext.sqlalchemy import SQLAlchemy
 from config import config
-
 
 bootstrap = Bootstrap()
 mail = Mail()
@@ -28,3 +25,4 @@ def create_app(config_name):
     app.register_blueprint(main_blueprint)
 
     return app
+
