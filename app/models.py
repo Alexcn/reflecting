@@ -2,6 +2,15 @@
 
 from . import db
 
+
+class Permission:
+    FOLLOW = 0x01
+    COMMENT = 0x02
+    WRITE_ARTICLES = 0x04
+    MODERATE_COMMENTS = 0x08
+    ADMINISTER = 0x80
+
+
 class Role(db.Model):
     __tablename__ = 'roles'
     id = db.Column(db.Integer, primary_key=True)
@@ -16,6 +25,7 @@ class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(64), unique=True, index=True)
     email = db.Column(db.String(64), unique=True, index=True)
+    password_hash = db.Column(db.String(128))
     phone_num = db.Column(db.BigInteger, unique=True)
     role_id = db.Column(db.Integer, db.ForeignKey('roles.id'))
     role = db.relationship('Role', backref=db.backref('users', lazy='dynamic'))
@@ -63,8 +73,5 @@ class Article_modify_version(db.Model):
     user = db.relationship('User', backref=db.backref('article_modify_versions', lazy='dynamic'))
     article = db.relationship('Article', backref=db.backref('article_modify_versions', lazy='dynamic'))
     created_time = db.Column(db.TIMESTAMP)
-
-
-
 
 

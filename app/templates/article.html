@@ -1,10 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>这里从数据库获取文章的标题</title>
-</head>
-<body>
+{% extends "base.html" %}
+{% block title %} 关于我 {% endblock %}
 
-</body>
-</html>
+{% block page_content %}
+<div class="page-header">
+    <h2>关于我</h2>
+    <br>
+    <p>写的这些东西，是我一路走来的痕迹。有些问题需要不写下来，很难沉淀，这就是为什么我们老是会犯同样的错误。</p>
+    <p>一路走来，始终如一。</p>
+    <p>有时候我只是抛出一个问题，并没有提供具体解决问题的方法。</p>
+</div>
+{% endblock %}
