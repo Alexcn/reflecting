@@ -5,11 +5,6 @@ from wtforms.validators import Required
 from flask.ext.pagedown.fields import PageDownField
 
 
-class NameForm(Form):
-    name = StringField('请输入你的名字', validators=[Required()])
-    submit = SubmitField('提交')
-
-
 class ArticleForm(Form):
     title = StringField('标题', validators=[Required()])
     body = PageDownField(validators=[Required()])
