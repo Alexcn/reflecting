@@ -12,3 +12,4 @@ tmp/*
 venv
 .DS_Store
 venv/*
+db.sqlite3
