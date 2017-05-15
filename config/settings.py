@@ -35,6 +35,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'xadmin',
+    'DjangoUeditor',
     'crispy_forms',
     # 'reversion',
     'django.contrib.admin',
