@@ -11,5 +11,19 @@ class BaseSetting(object):
 
 
 class GlobalSettings(object):
-    site_title = "FengXiao博客系统"
-    site_footer = "FengXiao博客系统"
+    site_title = "博客系统"
+    site_footer = "博客系统"
+
+
+class ArticleAdmin(object):
+    list_display = ['title', 'short_name']
+    search_fields = ['title', 'short_name']
+    list_filter = ['title', 'short_name']
+    model_icon = 'fa fa-eyedropper'
+    style_fields = {"content": "ueditor"}
+
+
+xadmin.site.register(Article, ArticleAdmin)
+
+xadmin.site.register(views.BaseAdminView, BaseSetting)
+xadmin.site.register(views.CommAdminView, GlobalSettings)
