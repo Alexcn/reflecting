@@ -66,7 +66,7 @@ Licensed under the MIT license.
 				if (window.G_vmlCanvasManager) {
 					element = window.G_vmlCanvasManager.initElement(element);
 				} else {
-					throw new Error("Canvas is not available. If you're using IE with a fall-back such as Excanvas, then there's either a mistake in your conditional include, or the page has no DOCTYPE and is rendering in Quirks Mode.");
+					throw new Error("Canvas is not available. If you're using IE with a fall-back such as Excanvas, then there's either a mistake in your conditional includes, or the page has no DOCTYPE and is rendering in Quirks Mode.");
 				}
 			}
 		}
@@ -1580,7 +1580,7 @@ Licensed under the MIT license.
             axis.tickSize = opts.tickSize || size;
 
             // Time mode was moved to a plug-in in 0.8, but since so many people use this
-            // we'll add an especially friendly make sure they remembered to include it.
+            // we'll add an especially friendly make sure they remembered to includes it.
 
             if (opts.mode == "time" && !axis.tickGenerator) {
                 throw new Error("Time mode requires the flot.time plugin.");

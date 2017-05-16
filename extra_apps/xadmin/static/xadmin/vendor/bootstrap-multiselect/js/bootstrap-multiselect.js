@@ -157,7 +157,7 @@
 			
 		    var alreadyHasSelectAll = this.$select[0][0] ? this.$select[0][0].value == 'select-all-option' : false;
 		    
-			// If options.includeSelectAllOption === true, add the include all checkbox.
+			// If options.includeSelectAllOption === true, add the includes all checkbox.
 		    if (this.options.includeSelectAllOption && this.options.multiple && !alreadyHasSelectAll) {
 				this.$select.prepend('<option value="select-all-option">' + this.options.selectAllText + '</option>');
 		    }
