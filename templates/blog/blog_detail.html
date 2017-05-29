@@ -34,24 +34,24 @@
     <h2><a href="{% url "detail_post_page" slug=object.slug %}">{{ object.title }}</a>{% if object.publish == False %} <i class="badge">DRAF</i>{% endif %}</h2>
     <div class="meta">
       By: <a href="{% url 'author_posts_page' username=object.author.user.username %}" style="text-transform:uppercase">{{ object.author }}</a> &#9679;
-      at {{ object.created }} &#9679; and modified at {{ object.modified }}<br />
-      Posted under:
-      {% for tag in object.tags.all %}
-        <a href="{% url 'tag_posts_page' slug=tag.slug %}">#{{ tag }}</a>{% if not forloop.last %}, {% endif %}
-      {% empty %}Uncategories
-      {% endfor %}
-      <br />
-      Your ip address: {{ get_client_ip }} &#9679; views: {{ visitor_counter }} times.
+      at {{ object.created }} &#9679;  阅读次数: {{ visitor_counter }}<br />
+{#      Posted under:#}
+{#      {% for tag in object.tags.all %}#}
+{#        <a href="{% url 'tag_posts_page' slug=tag.slug %}">#{{ tag }}</a>{% if not forloop.last %}, {% endif %}#}
+{#      {% empty %}Uncategories#}
+{#      {% endfor %}#}
+{#      <br />#}
+{#      Your ip address: {{ get_client_ip }} &#9679; views: {{ visitor_counter }} times.#}
     </div>
 
-    <p>
-    {% if object.cover %}
-    <caption align="bottom">
-      <img style="width:100%" class="cover-post" src="//{{ request.get_host }}/media/{{ object.cover }}" title="{{ object.title }}" alt="{{ object.title }}"/>
-    <span style="margin-left: 1px;background: #F2F4F3; padding: 0 5px; text-shadow: 1px 1px 1px #fff;">{{ object.title }}</span>
-    </caption>
-    {% endif %}
-    </p>
+{#    <p>#}
+{#    {% if object.cover %}#}
+{#    <caption align="bottom">#}
+{#      <img style="width:100%" class="cover-post" src="//{{ request.get_host }}/media/{{ object.cover }}" title="{{ object.title }}" alt="{{ object.title }}"/>#}
+{#    <span style="margin-left: 1px;background: #F2F4F3; padding: 0 5px; text-shadow: 1px 1px 1px #fff;">{{ object.title }}</span>#}
+{#    </caption>#}
+{#    {% endif %}#}
+{#    </p>#}
     {{ object.description|safe }}
 
     <div class="share panel-body" id="non-printable">
