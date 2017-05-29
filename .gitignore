@@ -13,3 +13,5 @@ venv
 .DS_Store
 venv/*
 db.sqlite3
+!media/.gitkepp
+media/*
