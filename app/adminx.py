@@ -24,7 +24,7 @@ class ArticleAdmin(object):
 
 
 class ArticleReviewAdmin(object):
-    list_display = ['title', 'passed', 'created_at', 'updated_at', 'go_to']
+    list_display = ['title', 'passed', 'created_at', 'updated_at', 'go_to', 'keywords']
     search_fields = ['title', 'created_at']
     list_filter = ['title', 'created_at']
     model_icon = 'fa fa-graduation-cap'

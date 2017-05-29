@@ -44,8 +44,14 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'app',
+    # 'app',
+    'blog',
+    'nocaptcha_recaptcha',
+    'import_export',
+    # 'disqus',
 ]
+
+# SITE_ID = 1
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -137,3 +143,9 @@ STATICFILES_DIRS = [
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+NORECAPTCHA_SITE_KEY = "key_key_key_key"
+NORECAPTCHA_SECRET_KEY = "key_key_key_key"
+
+DISQUS_API_KEY = 'your_disqus_api_key'
+DISQUS_WEBSITE_SHORTNAME = 'your_disques_website_name'

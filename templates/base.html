@@ -1,9 +1,46 @@
-{% load staticfiles %}
-<!DOCTYPE html>
+{% load staticfiles %}<!DOCTYPE html>
 <html class="no-js" lang="en-US" prefix="og: http://ogp.me/ns#">
 <head>
+  <script type='text/javascript'>
+  (function() { var b=window,f="chrome",g="tick",k="jstiming";(function(){function d(a){this.t={};this.tick=function(a,d,c){var e=void 0!=c?c:(new Date).getTime();this.t[a]=[e,d];if(void 0==c)try{b.console.timeStamp("CSI/"+a)}catch(h){}};this[g]("start",null,a)}var a;b.performance&&(a=b.performance.timing);var n=a?new d(a.responseStart):new d;b.jstiming={Timer:d,load:n};if(a){var c=a.navigationStart,h=a.responseStart;0<c&&h>=c&&(b[k].srt=h-c)}if(a){var e=b[k].load;0<c&&h>=c&&(e[g]("_wtsrt",void 0,c),e[g]("wtsrt_","_wtsrt",h),e[g]("tbsd_","wtsrt_"))}try{a=null,
+  b[f]&&b[f].csi&&(a=Math.floor(b[f].csi().pageT),e&&0<c&&(e[g]("_tbnd",void 0,b[f].csi().startE),e[g]("tbnd_","_tbnd",c))),null==a&&b.gtbExternal&&(a=b.gtbExternal.pageT()),null==a&&b.external&&(a=b.external.pageT,e&&0<c&&(e[g]("_tbnd",void 0,b.external.startE),e[g]("tbnd_","_tbnd",c))),a&&(b[k].pt=a)}catch(p){}})();b.tickAboveFold=function(d){var a=0;if(d.offsetParent){do a+=d.offsetTop;while(d=d.offsetParent)}d=a;750>=d&&b[k].load[g]("aft")};var l=!1;function m(){l||(l=!0,b[k].load[g]("firstScrollTime"))}b.addEventListener?b.addEventListener("scroll",m,!1):b.attachEvent("onscroll",m);
+   })();
+  </script>
+  <meta charset="UTF-8">
+  <meta name="robots" content="noodp,noydir"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta content='100004919839335' property='fb:admins'/>
+  <meta content='647189095407751' property='fb:app_id'/>
+  <meta name="google-site-verification" content="ALyG2_Wag27MgRzLcdZDMUIiL_keuGcVTfLYMeWH_CI" />
+  <link rel="publisher" href="https://plus.google.com/112965619973080744055"/>
+  <meta name="msvalidate.01" content="549DDB40F02282AF680D66EE25B5A94F" />
+  <link rel="openid2.provider" href="https://openid.stackexchange.com/openid/provider" />
+  <link rel="openid2.local_id" href="https://openid.stackexchange.com/user/dbed287a-f726-40d2-82b8-7faaf9dc5018" />
+  <link rel="shortcut icon" href="{% static "assets/icons/favicon.ico" %}">
+  <link href="/feed/" rel="alternate" type="application/rss+xml" title="Blog Feed" />
 
-  <title>{% block title %}张志亮的博客{% endblock %}</title>
+  <title>{% block title %}Python Learning{% endblock %}</title>
+  <link rel="canonical" href="{% block canonical_url %}https://python.web.id{% endblock %}">
+
+  {% block meta_seo %}
+  <meta name="description" content="Django Blog Python Learning">
+  <meta name="author" content="Summon Agus">
+  <meta name="keywords" content="Python Learning, Summon Agus, Django Blog Summon Agus, Django, Blog Python Django"/>
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Python Learning}"/>
+  <meta property="og:description" content="Django Blog Python Learning"/>
+  <meta property="og:url" content="https://python.web.id"/>
+  <meta property="og:image" content="https://python.web.id{% static "icons/favicon.ico" %}"/>
+  <meta property="og:site_name" content="python.web.id" />
+  <meta name="twitter:card" content="summary"/>
+  <meta name="twitter:description" content="Django Blog Python Learning"/>
+  <meta name="twitter:image:src" content="https://python.web.id{% static "icons/favicon.ico" %}"/>
+  <meta name="twitter:title" content="Python Learning"/>
+  <meta name="twitter:domain" content="python.web.id"/>
+  <meta name="twitter:creator" content="@agusmakmun6"/>
+  {% endblock %}
 
   <link href="{% static "assets/css/bootstrap.min.css" %}" rel="stylesheet">
   <link href="{% static "assets/css/blog.css" %}" rel="stylesheet">
@@ -18,6 +55,26 @@
 </head>
 
 <body>
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-58520101-1', 'auto');
+  ga('send', 'pageview');
+  </script>
+
+  <div id="fb-root"></div>
+  <script>
+  (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/id_ID/sdk.js#xfbml=1&version=v2.5&appId=1556431541264317";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+  </script>
 
   {% include "includes/menu.html" %}
 
@@ -26,6 +83,10 @@
       <div class="col-sm-8 blog-main">
         {% block content %}{% endblock %}
       </div><!-- /.blog-main -->
+
+      <div class="col-sm-3 col-sm-offset-1 blog-sidebar" id="non-printable">
+        {% include "includes/sidebar.html" %}
+      </div><!-- /.blog-sidebar -->
     </div><!-- /.row -->
   </div><!-- /.main__container -->
 
