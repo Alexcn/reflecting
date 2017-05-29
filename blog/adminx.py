@@ -35,16 +35,16 @@ class PostAdmin(object):
     list_filter = ['author', 'title']
     model_icon = 'fa fa-eyedropper'
 
-    style_fields = {"content": "ueditor"}
+    style_fields = {"description": "ueditor"}
 
 
 class PageAdmin(object):
-    list_display = ['author', 'title', 'slug', 'content', 'publish']
+    list_display = ['author', 'title', 'slug', 'publish']
     search_fields = ['author', 'title', 'slug']
     list_filter = ['author', 'title']
     model_icon = 'fa fa-eyedropper'
 
-    style_fields = {"content": "ueditor"}
+    style_fields = {"description": "ueditor"}
 
 
 class GalleryAdmin(object):
@@ -59,38 +59,6 @@ class VisitorAdmin(object):
     search_fields = ['post', 'ip']
     list_filter = ['post', 'ip']
     model_icon = ['post', 'ip']
-
-
-class ArticleReviewAdmin(object):
-    list_display = ['title', 'passed', 'created_at', 'updated_at', 'go_to']
-    search_fields = ['title', 'created_at']
-    list_filter = ['title', 'created_at']
-    model_icon = 'fa fa-graduation-cap'
-    list_editable = ['passed']
-
-    style_fields = {"content": "ueditor"}
-
-    # 对菜单的列表页面数据进行过滤；
-    def queryset(self):
-        qs = super(ArticleReviewAdmin, self).queryset()
-        qs = qs.filter(passed=False)
-        return qs
-
-
-class ArticleApprovedAdmin(object):
-    list_display = ['title', 'passed', 'created_at', 'updated_at', 'go_to']
-    search_fields = ['title', 'created_at']
-    list_filter = ['title', 'created_at']
-    model_icon = 'fa fa-paper-plane'
-    list_editable = ['passed']
-
-    style_fields = {"content": "ueditor"}
-
-    # 对菜单的列表页面数据进行过滤；
-    def queryset(self):
-        qs = super(ArticleApprovedAdmin, self).queryset()
-        qs = qs.filter(passed=True)
-        return qs
 
 
 xadmin.site.register(Author, AuthorAdmin)
