@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 import xadmin
-from .models import Author, Tag, Post, Page, Gallery, Visitor
+from .models import Author, Tag, Post, Page, Visitor
 from xadmin import views
 
 
@@ -26,14 +26,14 @@ class TagAdmin(object):
     list_display = ['title', 'slug']
     search_fields = ['title', 'slug']
     list_filter = ['title', 'slug']
-    model_icon = 'fa fa-eyedropper'
+    model_icon = 'fa fa-tags'
 
 
 class PostAdmin(object):
-    list_display = ['author', 'title', 'slug', 'tags', 'publish']
+    list_display = ['author', 'title', 'slug', 'publish']
     search_fields = ['author', 'title', 'slug']
     list_filter = ['author', 'title']
-    model_icon = 'fa fa-eyedropper'
+    model_icon = 'fa fa-book'
 
     style_fields = {"description": "ueditor"}
 
@@ -42,16 +42,16 @@ class PageAdmin(object):
     list_display = ['author', 'title', 'slug', 'publish']
     search_fields = ['author', 'title', 'slug']
     list_filter = ['author', 'title']
-    model_icon = 'fa fa-eyedropper'
+    model_icon = 'fa fa-files-o'
 
     style_fields = {"description": "ueditor"}
 
 
-class GalleryAdmin(object):
-    list_display = ['title']
-    search_fields = ['title']
-    list_filter = ['title']
-    model_icon = 'fa fa-eyedropper'
+# class GalleryAdmin(object):
+#     list_display = ['title']
+#     search_fields = ['title']
+#     list_filter = ['title']
+#     model_icon = 'fa fa-eyedropper'
 
 
 class VisitorAdmin(object):
@@ -65,7 +65,7 @@ xadmin.site.register(Author, AuthorAdmin)
 xadmin.site.register(Tag, TagAdmin)
 xadmin.site.register(Post, PostAdmin)
 xadmin.site.register(Page, PageAdmin)
-xadmin.site.register(Gallery, GalleryAdmin)
+# xadmin.site.register(Gallery, GalleryAdmin)
 xadmin.site.register(Visitor, VisitorAdmin)
 
 
