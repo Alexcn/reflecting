@@ -24,7 +24,7 @@
           </a>
         </div>
       {% endif %}
-      {{ object.description|safe|striptags|truncatewords:"50"|linebreaks }}
+{#      {{ object.description|safe|striptags|truncatewords:"50"|linebreaks }}#}
       <span style="margin-bottom: .5em;float:right">
         <a href="{% url 'detail_post_page' slug=object.slug %}">Read More &rarr;</a>
       </span>
