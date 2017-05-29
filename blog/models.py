@@ -33,7 +33,7 @@ class Author(models.Model):
                        kwargs={'username': self.user.username})
 
     class Meta:
-        verbose_name = '作者详情'
+        verbose_name = '作者'
         verbose_name_plural = '作者'
 
 
@@ -49,7 +49,7 @@ class Tag(models.Model):
         return Post.objects.filter(tags__pk=self.pk).count()
 
     class Meta:
-        verbose_name = '标签详情'
+        verbose_name = '标签'
         verbose_name_plural = '标签'
 
 
@@ -89,7 +89,7 @@ class Post(TimeStampedModel):
         return self.title
 
     class Meta:
-        verbose_name = '文章详情'
+        verbose_name = '文章'
         verbose_name_plural = '文章'
         ordering = ["-created"]
 
@@ -110,7 +110,7 @@ class Page(TimeStampedModel):
     #    return reverse("page_detail", kwargs={"slug": self.slug})
 
     class Meta:
-        verbose_name = "页面详情"
+        verbose_name = "页面"
         verbose_name_plural = "页面"
         ordering = ["-created"]
 

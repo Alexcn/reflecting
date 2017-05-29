@@ -19,7 +19,7 @@ class AuthorAdmin(object):
     list_display = ['user', 'avatar', 'about', 'website']
     search_fields = ['user', 'about']
     list_filter = ['user', 'about']
-    model_icon = 'fa fa-eyedropper'
+    model_icon = 'fa fa-user-circle-o'
 
 
 class TagAdmin(object):
@@ -57,8 +57,8 @@ class GalleryAdmin(object):
 class VisitorAdmin(object):
     list_filter = ['post', 'ip']
     search_fields = ['post', 'ip']
-    list_filter = ['post', 'ip']
     model_icon = ['post', 'ip']
+    model_icon = 'fa fa-address-book-o'
 
 
 xadmin.site.register(Author, AuthorAdmin)
