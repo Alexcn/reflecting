@@ -63,13 +63,12 @@ class Post(TimeStampedModel):
     #                           null=True,
     #                           blank=True,
     #                           help_text='Optional cover post')
-    # description = RedactorField()
     description = UEditorField(verbose_name='文章内容', width=850, height=400, imagePath="blog/post/",
                                filePath="blog/post/", default='')
     tags = models.ManyToManyField('Tag', verbose_name='文章标签')
-    # keywords = models.CharField(max_length=200, null=True, blank=True,
-    #                             help_text='Keywords sparate by comma.', verbose_name='文章关键字')
-    # meta_description = models.TextField(null=True, blank=True, verbose_name='文章描述')
+    keywords = models.CharField(max_length=200, null=True, blank=True,
+                                help_text='Keywords sparate by comma.', verbose_name='文章关键字')
+    meta_description = models.TextField(null=True, blank=True, verbose_name='文章描述')
 
     publish = models.BooleanField(default=False, verbose_name='是否审核通过')
     objects = PostQuerySet.as_manager()
