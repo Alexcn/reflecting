@@ -8,7 +8,7 @@
     {% if object_list %}
     <ul>
       {% for object in object_list %}
-      	<li><a href="{% url 'detail_post_page' slug=object.slug %}">{{ object.title }}</a> - <i>{{ object.created }}</i></li>
+      	<li><a href="{% url 'detail_post_page' slug=object.slug %}">{{ object.title }}</a> - <i>{{ object.created|date:"Y-m-d" }}</i></li>
       {% endfor %}
     </ul>
     {% endif %}
