@@ -18,23 +18,23 @@
   {% if object.cover %}
   <meta property="og:image" content="https://{{ request.get_host }}/media/{{ object.cover }}"/>
   {% endif %}
-  <meta property="og:site_name" content="python.web.id" />
-  <meta name="twitter:card" content="summary"/>
-  <meta name="twitter:description" content="{% if object.meta_description %}{{ object.meta_description }}{% else %}{{ object.description|safe|striptags|truncatewords:"20" }}{% endif %}"/>
-  {% if object.cover %}
-  <meta name="twitter:image:src" content="https://{{ request.get_host }}/media/{{ object.cover }}"/>
-  {% endif %}
-  <meta name="twitter:title" content="{{ object.title }}"/>
-  <meta name="twitter:domain" content="python.web.id"/>
-  <meta name="twitter:creator" content="@agusmakmun6"/>
+{#  <meta property="og:site_name" content="python.web.id" />#}
+{#  <meta name="twitter:card" content="summary"/>#}
+{#  <meta name="twitter:description" content="{% if object.meta_description %}{{ object.meta_description }}{% else %}{{ object.description|safe|striptags|truncatewords:"20" }}{% endif %}"/>#}
+{#  {% if object.cover %}#}
+{#  <meta name="twitter:image:src" content="https://{{ request.get_host }}/media/{{ object.cover }}"/>#}
+{#  {% endif %}#}
+{#  <meta name="twitter:title" content="{{ object.title }}"/>#}
+{#  <meta name="twitter:domain" content="python.web.id"/>#}
+{#  <meta name="twitter:creator" content="@agusmakmun6"/>#}
 {% endblock %}
 
 {% block content %}
   <div class="post" id="printable">
     <h2><a href="{% url "detail_post_page" slug=object.slug %}">{{ object.title }}</a>{% if object.publish == False %} <i class="badge">DRAF</i>{% endif %}</h2>
     <div class="meta">
-      By: <a href="{% url 'author_posts_page' username=object.author.user.username %}" style="text-transform:uppercase">{{ object.author }}</a> &#9679;
-      at {{ object.created|date:"Y-m-d" }} &#9679;  阅读次数: {{ visitor_counter }}<br />
+{#      By: <a href="{% url 'author_posts_page' username=object.author.user.username %}" style="text-transform:uppercase">{{ object.author }}</a> &#9679;#}
+      发表于 {{ object.created|date:"Y-m-d" }} &#9679;  阅读次数: {{ visitor_counter }}<br />
 {#      Posted under:#}
 {#      {% for tag in object.tags.all %}#}
 {#        <a href="{% url 'tag_posts_page' slug=tag.slug %}">#{{ tag }}</a>{% if not forloop.last %}, {% endif %}#}
