@@ -16,3 +16,4 @@ db.sqlite3
 !media/.gitkepp
 media/*
 fabfile.py
+pm2_start.json
