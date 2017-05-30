@@ -17,3 +17,4 @@ db.sqlite3
 media/*
 fabfile.py
 pm2_start.json
+reflecting.tar.gz
