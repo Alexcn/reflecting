@@ -6,7 +6,6 @@ django-formtools==2.0
 django-import-export==0.5.1
 django-model-utils==3.0.0
 django-nocaptcha-recaptcha==0.0.19
-DjangoUeditor==1.8.143
 httplib2==0.10.3
 mock==2.0.0
 olefile==0.44
