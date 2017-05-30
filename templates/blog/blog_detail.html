@@ -70,23 +70,23 @@
      }
     </style>
 
-    <div class="panel panel-default" id="non-printable">
-    <div class="panel-heading">Author</div>
-      <div class="panel-body">
-        <div class="media">
-          <div class="media-left media-middle" style="float: left;margin-right: 10px;">
-            <a href="{% url 'author_posts_page' username=object.author.user.username %}">
-              <img class="media-object" alt="{{ object.author }}" title="{{ object.author }}" src="{% if object.author.avatar %}/media/{{ object.author.avatar }}{% else %}/static/assets/icons/avatar.jpeg{% endif %}" style="width: 64px; height: 64px;">
-            </a>
-          </div>
-          <div class="media-body">
-            <h4 class="media-heading">{{ object.author }}</h4>
-            {{ object.author.about|safe }}<br />
-              Website: <a href="{{ object.author.website }}" target="_blank">{{ object.author.website }}</a>
-          </div>
-        </div>
-      </div>
-    </div>
+{#    <div class="panel panel-default" id="non-printable">#}
+{#    <div class="panel-heading">Author</div>#}
+{#      <div class="panel-body">#}
+{#        <div class="media">#}
+{#          <div class="media-left media-middle" style="float: left;margin-right: 10px;">#}
+{#            <a href="{% url 'author_posts_page' username=object.author.user.username %}">#}
+{#              <img class="media-object" alt="{{ object.author }}" title="{{ object.author }}" src="{% if object.author.avatar %}/media/{{ object.author.avatar }}{% else %}/static/assets/icons/avatar.jpeg{% endif %}" style="width: 64px; height: 64px;">#}
+{#            </a>#}
+{#          </div>#}
+{#          <div class="media-body">#}
+{#            <h4 class="media-heading">{{ object.author }}</h4>#}
+{#            {{ object.author.about|safe }}<br />#}
+{#              Website: <a href="{{ object.author.website }}" target="_blank">{{ object.author.website }}</a>#}
+{#          </div>#}
+{#        </div>#}
+{#      </div>#}
+{#    </div>#}
 
     <div class="panel panel-default related" id="non-printable">
       <div class="panel-heading">
