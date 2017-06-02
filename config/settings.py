@@ -28,7 +28,7 @@ SECRET_KEY = '*!unvqksx#tik=rp0$i5iza&=$=zhn1hksbg@mfsuxb)vw@t_8'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1']
 
 
 # Application definition
@@ -149,3 +149,5 @@ NORECAPTCHA_SECRET_KEY = "key_key_key_key"
 
 DISQUS_API_KEY = 'your_disqus_api_key'
 DISQUS_WEBSITE_SHORTNAME = 'your_disques_website_name'
+
+# STATIC_ROOT = os.path.join(BASE_DIR, 'static')
