@@ -7,6 +7,7 @@ migrations/__pycache__
 migrations/__pycache__/*
 config/database.yml
 .idea/*
+!tmp/.gitkeep
 tmp/*
 *.db
 venv
