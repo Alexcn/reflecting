@@ -19,3 +19,4 @@ fabfile.py
 pm2_start.json
 reflecting.tar.gz
 gunicorn.conf.py
+config/settings_production.py
