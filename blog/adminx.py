@@ -16,7 +16,7 @@ class GlobalSettings(object):
 
 
 class AuthorAdmin(object):
-    list_display = ['user', 'avatar', 'about', 'website']
+    list_display = ['user', 'avatar', 'about']
     search_fields = ['user', 'about']
     list_filter = ['user', 'about']
     model_icon = 'fa fa-user-circle-o'
