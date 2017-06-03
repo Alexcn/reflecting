@@ -63,7 +63,7 @@ class Post(TimeStampedModel):
     #                           null=True,
     #                           blank=True,
     #                           help_text='Optional cover post')
-    description = UEditorField(verbose_name='文章内容', width=850, height=400, imagePath="blog/post/",
+    description = UEditorField(verbose_name='文章内容', width=890, height=400, imagePath="blog/post/",
                                filePath="blog/post/", default='')
     tags = models.ManyToManyField('Tag', verbose_name='文章标签')
     keywords = models.CharField(max_length=200, null=True, blank=True,
