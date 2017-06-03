@@ -22,3 +22,8 @@ reflecting.tar.gz
 gunicorn.conf.py
 config/settings_production.py
 site_ctl.sh
+static/admin/*
+static/import_export/*
+static/ueditor/*
+static/xadmin/*
+
