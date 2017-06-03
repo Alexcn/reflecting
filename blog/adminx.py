@@ -11,8 +11,8 @@ class BaseSetting(object):
 
 
 class GlobalSettings(object):
-    site_title = "张志亮的博客系统"
-    site_footer = "张志亮的博客系统"
+    site_title = "GeekTop博客系统"
+    site_footer = "GeekTop博客系统"
 
 
 class AuthorAdmin(object):
