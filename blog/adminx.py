@@ -5,6 +5,10 @@ from .models import Author, Tag, Post, Page, Visitor
 from xadmin import views
 
 
+# 审核 <i class="fa fa-eye" aria-hidden="true"></i>
+# 评论 <i class="fa fa-comments" aria-hidden="true"></i>
+# 
+
 class BaseSetting(object):
     enable_themes = True
     use_bootswatch = True
