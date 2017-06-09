@@ -58,7 +58,7 @@ class PostQuerySet(models.QuerySet):
 class Post(TimeStampedModel):
     author = models.ForeignKey(Author, related_name='author_post', verbose_name='文章作者')
     title = models.CharField(max_length=200, verbose_name='文章标题')
-    slug = models.SlugField(max_length=200, unique=True)
+    slug = models.SlugField(max_length=200, unique=True, verbose_name='短链接')
     # cover = models.ImageField(upload_to='gallery/covers/%Y/%m/%d',
     #                           null=True,
     #                           blank=True,

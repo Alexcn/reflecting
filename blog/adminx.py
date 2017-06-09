@@ -34,9 +34,10 @@ class TagAdmin(object):
 
 
 class PostAdmin(object):
-    list_display = ['author', 'title', 'slug', 'publish']
+    list_display = ['title', 'author', 'slug', 'publish']
     search_fields = ['author', 'title', 'slug']
     list_filter = ['author', 'title']
+    list_editable = ['publish']
     model_icon = 'fa fa-book'
 
     style_fields = {"description": "ueditor"}
@@ -46,6 +47,7 @@ class PageAdmin(object):
     list_display = ['author', 'title', 'slug', 'publish']
     search_fields = ['author', 'title', 'slug']
     list_filter = ['author', 'title']
+    list_editable = ['publish']
     model_icon = 'fa fa-files-o'
 
     style_fields = {"description": "ueditor"}
