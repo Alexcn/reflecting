@@ -44,7 +44,7 @@ class PostAdmin(object):
 
 
 class PageAdmin(object):
-    list_display = ['author', 'title', 'slug', 'publish']
+    list_display = ['title', 'author', 'slug', 'publish']
     search_fields = ['author', 'title', 'slug']
     list_filter = ['author', 'title']
     list_editable = ['publish']
