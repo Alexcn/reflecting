@@ -52,7 +52,9 @@
 {#    </caption>#}
 {#    {% endif %}#}
 {#    </p>#}
-    {{ object.description|safe }}
+      <div class="article-body">
+          {{ object.description|safe }}
+      </div>
 
     <div class="share panel-body" id="non-printable">
       <span>Share on: </span>
