@@ -143,3 +143,11 @@ class Visitor(TimeStampedModel):
         verbose_name = '访客详情'
         verbose_name_plural = '访客'
         ordering = ['-created']
+
+
+class Comments(TimeStampedModel):
+    post_id = models.ForeignKey(Post, related_name='post_comments')
+    content = models.TextField(verbose_name='评论详情')
+    parent_id = models.IntegerField(default=None)
+    email = models.EmailField(verbose_name='电子邮件', null=False)
+    nick_name = models.CharField(max_length=64, verbose_name='昵称', null=False)
