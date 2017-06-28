@@ -70,18 +70,24 @@ class DetailPostView(generic.DetailView):
 
     def get_client_ip(self):
         ip = self.request.META.get("HTTP_X_FORWARDED_FOR", None)
+        logger.debug(ip)
         if ip:
+            logger.debug("In if " + ip)
             ip = ip.split(", ")[0]
         else:
             ip = self.request.META.get("REMOTE_ADDR", "")
+        visitor = Visitor(
+            post=self.object,
+            ip=ip
+        )
+        visitor.save()
         return ip
 
     def visitorCounter(self):
-        logging.info('A new visitor....')
         try:
-            Visitor.objects.get(
+            Visitor.objects.filter(
                 post=self.object,
-                ip=self.request.META['REMOTE_ADDR']
+                # ip=self.request.META['REMOTE_ADDR']
             )
         except ObjectDoesNotExist:
             dns = str(socket.getfqdn(
