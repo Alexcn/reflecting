@@ -16,6 +16,10 @@ from blog.models import *
 from blog.forms import ContactForm
 from blog.utils.paginator import GenericPaginator
 
+import logging
+
+logger = logging.getLogger(__name__)
+
 
 def handler400(request):
     response = render_to_response('error_page.html', {'title': '400 Bad Request', 'message': '400'},
@@ -72,38 +76,39 @@ class DetailPostView(generic.DetailView):
             ip = self.request.META.get("REMOTE_ADDR", "")
         return ip
 
+    def visitorCounter(self):
+        logging.info('A new visitor....')
+        try:
+            Visitor.objects.get(
+                post=self.object,
+                ip=self.request.META['REMOTE_ADDR']
+            )
+        except ObjectDoesNotExist:
+            dns = str(socket.getfqdn(
+                self.request.META['REMOTE_ADDR']
+            )).split('.')[-1]
+            try:
+                # trying for localhost: str(dns) == 'localhost',
+                # trying for production: int(dns)
+                if str(dns) == 'localhost':
+                    visitor = Visitor(
+                        post=self.object,
+                        ip=self.request.META['REMOTE_ADDR']
+                    )
+                    visitor.save()
+                else:
+                    pass
+            except ValueError:
+                pass
+        return Visitor.objects.filter(post=self.object).count()
+
     # def visitorCounter(self):
     #     try:
-    #         Visitor.objects.get(
-    #             post=self.object,
-    #             ip=self.request.META['REMOTE_ADDR']
-    #         )
-    #     except ObjectDoesNotExist:
-    #         dns = str(socket.getfqdn(
-    #             self.request.META['REMOTE_ADDR']
-    #         )).split('.')[-1]
-    #         try:
-    #             # trying for localhost: str(dns) == 'localhost',
-    #             # trying for production: int(dns)
-    #             if str(dns) == 'localhost':
-    #                 visitor = Visitor(
-    #                     post=self.object,
-    #                     ip=self.request.META['REMOTE_ADDR']
-    #                 )
-    #                 visitor.save()
-    #             else:
-    #                 pass
-    #         except ValueError:
-    #             pass
+    #         visitor = Visitor(post=self.object, ip=self.request.META['REMOTE_ADDR'])
+    #         visitor.save()
+    #     except ValueError:
+    #         pass
     #     return Visitor.objects.filter(post=self.object).count()
-
-    def visitorCounter(self):
-        try:
-            visitor = Visitor(post=self.object, ip=self.request.META['REMOTE_ADDR'])
-            visitor.save()
-        except ValueError:
-            pass
-        return Visitor.objects.filter(post=self.object).count()
 
     def dispatch(self, request, *args, **kwargs):
         obj = self.get_object()
