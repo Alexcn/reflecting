@@ -72,29 +72,37 @@ class DetailPostView(generic.DetailView):
             ip = self.request.META.get("REMOTE_ADDR", "")
         return ip
 
+    # def visitorCounter(self):
+    #     try:
+    #         Visitor.objects.get(
+    #             post=self.object,
+    #             ip=self.request.META['REMOTE_ADDR']
+    #         )
+    #     except ObjectDoesNotExist:
+    #         dns = str(socket.getfqdn(
+    #             self.request.META['REMOTE_ADDR']
+    #         )).split('.')[-1]
+    #         try:
+    #             # trying for localhost: str(dns) == 'localhost',
+    #             # trying for production: int(dns)
+    #             if str(dns) == 'localhost':
+    #                 visitor = Visitor(
+    #                     post=self.object,
+    #                     ip=self.request.META['REMOTE_ADDR']
+    #                 )
+    #                 visitor.save()
+    #             else:
+    #                 pass
+    #         except ValueError:
+    #             pass
+    #     return Visitor.objects.filter(post=self.object).count()
+
     def visitorCounter(self):
         try:
-            Visitor.objects.get(
-                post=self.object,
-                ip=self.request.META['REMOTE_ADDR']
-            )
-        except ObjectDoesNotExist:
-            dns = str(socket.getfqdn(
-                self.request.META['REMOTE_ADDR']
-            )).split('.')[-1]
-            try:
-                # trying for localhost: str(dns) == 'localhost',
-                # trying for production: int(dns)
-                if str(dns) == 'localhost':
-                    visitor = Visitor(
-                        post=self.object,
-                        ip=self.request.META['REMOTE_ADDR']
-                    )
-                    visitor.save()
-                else:
-                    pass
-            except ValueError:
-                pass
+            visitor = Visitor(post=self.object, ip=self.request.META['REMOTE_ADDR'])
+            visitor.save()
+        except ValueError:
+            pass
         return Visitor.objects.filter(post=self.object).count()
 
     def dispatch(self, request, *args, **kwargs):
