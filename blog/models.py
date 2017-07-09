@@ -133,8 +133,8 @@ class Page(TimeStampedModel):
 
 
 class Visitor(models.Model):
-    created = models.DateTimeField(auto_now_add=True)
-    post = models.ForeignKey(Post, related_name='post_visitor')
+    created = models.DateTimeField(auto_now_add=True, verbose_name='访问时间')
+    post = models.ForeignKey(Post, related_name='post_visitor', verbose_name='查看文章')
     ip = models.CharField(max_length=40, verbose_name='访客IP')
 
     def __str__(self):
