@@ -90,9 +90,9 @@ class Post(TimeStampedModel):
 
 
 class Page(TimeStampedModel):
-    author = models.ForeignKey(Author, related_name='author_page')
-    title = models.CharField(max_length=200)
-    slug = models.SlugField(max_length=200, unique=True)
+    author = models.ForeignKey(Author, related_name='author_page', verbose_name='作者')
+    title = models.CharField(max_length=200, verbose_name='标题')
+    slug = models.SlugField(max_length=200, unique=True, verbose_name='页面URL')
     description = UEditorField(verbose_name='页面内容', width=850, height=400, imagePath="blog/page/",
                                filePath="blog/page/", default='')
     publish = models.BooleanField(default=True, verbose_name='是否审核通过')
