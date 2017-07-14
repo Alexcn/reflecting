@@ -65,7 +65,7 @@ class VisitorAdmin(object):
     list_filter = ['post', 'ip']
     search_fields = ['post', 'ip']
     model_icon = ['post', 'ip']
-    list_editable = ['post', 'ip']
+    # list_editable = ['post', 'ip']
     model_icon = 'fa fa-address-book-o'
 
 
