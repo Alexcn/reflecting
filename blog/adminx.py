@@ -61,7 +61,7 @@ class PageAdmin(object):
 
 
 class VisitorAdmin(object):
-    list_display = ['post', 'ip', 'created']
+    list_display = ['post', 'ip', 'real_location', 'created']
     list_filter = ['post', 'ip']
     search_fields = ['post', 'ip']
     model_icon = ['post', 'ip']
