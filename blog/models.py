@@ -136,6 +136,7 @@ class Visitor(models.Model):
     created = models.DateTimeField(auto_now_add=True, verbose_name='访问时间')
     post = models.ForeignKey(Post, related_name='post_visitor', verbose_name='查看文章')
     ip = models.CharField(max_length=40, verbose_name='访客IP')
+    real_location = models.CharField(max_length=256, verbose_name='归属地', blank=True, null=True)
 
     def __str__(self):
         return self.post.title

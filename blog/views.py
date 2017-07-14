@@ -15,6 +15,7 @@ from django.db.models import (Q, Count)
 from blog.models import *
 from blog.forms import ContactForm
 from blog.utils.paginator import GenericPaginator
+import requests
 
 import logging
 
@@ -72,16 +73,27 @@ class DetailPostView(generic.DetailView):
         ip = self.request.META.get("HTTP_X_FORWARDED_FOR", None)
         logger.debug(ip)
         if ip:
-            logger.debug("In if " + ip)
+            logger.info("In if " + ip)
             ip = ip.split(", ")[0]
         else:
             ip = self.request.META.get("REMOTE_ADDR", "")
         visitor = Visitor(
             post=self.object,
-            ip=ip
+            ip=ip,
+            real_location=None
         )
         visitor.save()
         return ip
+
+    @staticmethod
+    def get_real_location(ip):
+        url = 'http://ip.taobao.com/service/getIpInfo.php?ip={ip}'.format(ip=ip)
+        data = requests.get(url).json()
+        if data['code'] == 0:
+            return data['data'].get('country') + ' ' + data['data'].get('city') + ' ' + data['data'].get('county') \
+                   + ' ' + data['data'].get('isp')
+        else:
+            return ''
 
     def visitorCounter(self):
         try:
