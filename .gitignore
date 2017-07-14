@@ -3,8 +3,6 @@ app/__pycache__/*
 db/*
 *.py[co]
 *.sqlite
-migrations/__pycache__
-migrations/__pycache__/*
 config/database.yml
 .idea/*
 !tmp/.gitkeep
