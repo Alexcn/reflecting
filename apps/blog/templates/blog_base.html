@@ -47,7 +47,8 @@
                             </div>
 
                             <div class="form-group">
-                                <input type="password" class="form-control" placeholder="Confirm Password" name="retype_password">
+                                <input type="password" class="form-control" placeholder="Confirm Password"
+                                       name="retype_password">
                                 <i class="form-group__bar"></i>
                             </div>
                             <p>
@@ -74,15 +75,18 @@
 
                         <div class="dropdown-menu">
                             <div class="tab-content">
-                                <form class="tab-pane active in fade" id="top-nav-login" method="post" action="{% url 'login' %}">
+                                <form class="tab-pane active in fade" id="top-nav-login" method="post"
+                                      action="{% url 'login' %}">
                                     {% csrf_token %}
                                     <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="Email Address" name="email">
+                                        <input type="text" class="form-control" placeholder="Email Address"
+                                               name="email">
                                         <i class="form-group__bar"></i>
                                     </div>
 
                                     <div class="form-group">
-                                        <input type="password" class="form-control" placeholder="Password" name="password">
+                                        <input type="password" class="form-control" placeholder="Password"
+                                               name="password">
                                         <i class="form-group__bar"></i>
                                     </div>
 
@@ -109,12 +113,14 @@
                                     </div>
                                 </form>
 
-                                <form class="tab-pane fade forgot-password" id="top-nav-forgot-password" method="post" action="{% url 'password' %}">
+                                <form class="tab-pane fade forgot-password" id="top-nav-forgot-password" method="post"
+                                      action="{% url 'password' %}">
                                     <a href="#top-nav-login" class="top-nav__back" data-toggle="tab"></a>
                                     <p>请输入你注册时的邮箱，我们稍后会发送重置密码的链接到你的邮箱。</p>
                                     {% csrf_token %}
                                     <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="Emaill Address" name="email">
+                                        <input type="text" class="form-control" placeholder="Emaill Address"
+                                               name="email">
                                         <i class="form-group__bar"></i>
                                     </div>
                                     <button class="btn btn-warning btn-block">重置密码</button>
@@ -127,14 +133,14 @@
                     <a href="/rss.xml"><i class="zmdi zmdi-rss"></i></a>
                 </li>
                 <li class="pull-right top-nav__icon">
-                    <a href="//blog.ansheng.me" target="_blank"><i class="zmdi zmdi-github"></i></a>
+                    <a href="https://github.com/itpubs" target="_blank"><i class="zmdi zmdi-github"></i></a>
                 </li>
                 <li class="pull-right top-nav__icon">
                     <a href="#" target="_blank"><i class="zmdi zmdi-language-python"></i></a>
                 </li>
-                <li class="pull-right top-nav__icon">
-                    <a href="mailto:ianshengme@gmail.com" target="_blank"><i class="zmdi zmdi-email"></i></a>
-                </li>
+{#                <li class="pull-right top-nav__icon">#}
+{#                    <a href="mailto:zhilight@gmail.com" target="_blank"><i class="zmdi zmdi-email"></i></a>#}
+{#                </li>#}
             </ul>
         </div>
     </div>
@@ -149,17 +155,19 @@
                 </div>
             </a>
 
-            <div class="navigation-trigger visible-xs visible-sm" data-rmd-action="block-open" data-rmd-target=".navigation">
+            <div class="navigation-trigger visible-xs visible-sm" data-rmd-action="block-open"
+                 data-rmd-target=".navigation">
                 <i class="zmdi zmdi-menu"></i>
             </div>
             <ul class="navigation">
-                <li class="visible-xs visible-sm"><a class="navigation__close" data-rmd-action="navigation-close" href=""><i class="zmdi zmdi-long-arrow-right"></i></a></li>
+                <li class="visible-xs visible-sm"><a class="navigation__close" data-rmd-action="navigation-close"
+                                                     href=""><i class="zmdi zmdi-long-arrow-right"></i></a></li>
                 <li {% if request.path == '/' %} class="active"{% endif %}>
                     <a href="{% url 'index' %}">首页</a>
                 </li>
-{#                <li {% if request.path == '/about/' %} class="active"{% endif %}>#}
-{#                    <a href="{% url 'about' %}">关于</a>#}
-{#                </li>#}
+                {#                <li {% if request.path == '/about/' %} class="active"{% endif %}>#}
+                {#                    <a href="{% url 'about' %}">关于</a>#}
+                {#                </li>#}
             </ul>
         </div>
     </div>
@@ -169,8 +177,10 @@
     <div class="container">
         <div class="action-header__item action-header__item--search">
             <form method="get" action="{% url 'index' %}">
-                <input type="text" class="hidden-sm hidden-xs" placeholder="在这里可以输入你要搜索的关键字~" name="search"><!-- For desktop -->
-                <input type="text" class="visible-xs visible-sm" placeholder="Search..." name="search_sm"><!-- For desktop -->
+                <input type="text" class="hidden-sm hidden-xs" placeholder="在这里可以输入你要搜索的关键字~" name="search">
+                <!-- For desktop -->
+                <input type="text" class="visible-xs visible-sm" placeholder="Search..." name="search_sm">
+                <!-- For desktop -->
                 <input type="submit" style="display: none">
             </form>
         </div>
