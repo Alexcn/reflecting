@@ -144,7 +144,7 @@
             <a class="logo" href="{% url 'index' %}">
                 <img src="{% static 'blog/img/logo.png' %}" alt="">
                 <div class="logo__text">
-                    <span>安生</span>
+                    <span>GeekTop</span>
                     <span>Good time!</span>
                 </div>
             </a>
@@ -157,9 +157,9 @@
                 <li {% if request.path == '/' %} class="active"{% endif %}>
                     <a href="{% url 'index' %}">首页</a>
                 </li>
-                <li {% if request.path == '/about/' %} class="active"{% endif %}>
-                    <a href="{% url 'about' %}">关于</a>
-                </li>
+{#                <li {% if request.path == '/about/' %} class="active"{% endif %}>#}
+{#                    <a href="{% url 'about' %}">关于</a>#}
+{#                </li>#}
             </ul>
         </div>
     </div>
