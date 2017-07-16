@@ -1,0 +1,223 @@
+.detail-media {
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+
+    .light-gallery {
+        & > a {
+            & > img {
+                width: 100%;
+                border-radius: 2px 2px 0 0;
+            }
+
+            &:first-child {
+                & > img {
+                }
+            }
+
+            &:not(:first-child) {
+                display: none;
+            }
+        }
+    }
+}
+
+.detail-media__nav {
+    .list-inline();
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 15px;
+    text-align: center;
+
+    & > li {
+        & > a {
+            display: block;
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 18px;
+            background: rgba(0, 0, 0, 0.3);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            line-height: 41px;
+            margin: 0 1px;
+            .transition(all);
+            .transition-duration(250ms);
+        }
+
+        &.active {
+            & > a {
+                color: #fff;
+            }
+        }
+
+        &:not(.active) {
+            & > a {
+                &:hover {
+                    background: rgba(0, 0, 0, 0.5);
+                    color: rgba(255, 255, 255, 0.8);
+                }
+            }
+        }
+    }
+}
+
+//Location Map
+#listing-map {
+    width: 100%;
+    margin-bottom: -25px;
+    height: 374px;
+}
+
+
+
+//Property Information
+.detail-info__header {
+    border-radius: 2px 2px 0 0;
+    padding: 26px 28px 23px;
+    position: relative;
+
+    strong {
+        color: @text-strong;
+        font-size: 20px;
+        line-height: 100%;
+        margin-right: 15px;
+    }
+    
+    small {
+        font-size: 14px;
+        position: relative;
+        top: -2px;
+        color: @text-muted;
+    }
+    
+    span {
+        float: right;
+        background-color: #585858;
+        color: #fff;
+        font-size: 11px;
+        padding: 4px 10px;
+        border-radius: 2px;
+        margin-top: -2px;
+        text-transform: uppercase;
+    }
+
+    @media (max-width: @screen-sm-max) {
+        padding: 20px 25px 15px;
+
+        small {
+            display: block;
+            margin-top: 10px;
+        }
+
+        span {
+            position: absolute;
+            top: 20px;
+            right: 25px;
+        }
+    }
+}
+
+.detail-amenities__list,
+.detail-info__list {
+    .list-inline();
+}
+
+.detail-info__list {
+    padding-bottom: 10px;
+
+    & > li {
+        width: 50%;
+        float: left;
+        padding: 15px 30px;
+        border-top: 1px solid #f5f5f5;
+
+        & > span {
+            &:first-child {
+                display: inline-block;
+                font-weight: 500;
+                color: @text-strong;
+                width: 110px;
+            }
+        }
+
+        @media(max-width: @screen-sm-max) {
+            padding: 10px 25px;
+
+            & > span {
+                &:last-child {
+                    display: block;
+                    margin-top: 3px;
+                }
+            }
+        }
+    }
+}
+
+
+
+//Property Amenities
+.detail-amenities__list {
+    & > li {
+        padding: 8px 15px 8px;
+        color: #fff;
+        border-radius: 2px;
+        margin: 0px 1px 4px 0;
+        font-weight: 500;
+        text-transform: uppercase;
+        font-size: 12px;
+    }
+}
+
+
+//Inquiry
+.inquire__number {
+    display: inline-block;
+    background-color: @mdc-red-400;
+    color: #fff;
+    font-size: 16px;
+    padding: 13px 25px 11px;
+    border-radius: 2px;
+    font-weight: 500;
+    margin-bottom: 35px;
+
+    & > i {
+        font-size: 25px;
+        vertical-align: middle;
+        margin: -5px 5px 0 0;
+    }
+}
+
+
+//Sharing
+.rmd-share {
+    min-width: 80px;
+    width: 80px;
+    text-align: center;
+
+    & > div {
+        padding: 8px 0;
+    }
+}
+
+.rmds-item {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    line-height: 40px;
+    font-size: 18px;
+    margin: 4px 3px;
+    cursor: pointer;
+    .transition(background-color);
+    .transition-duration(300ms);
+
+    &:hover {
+        background-color: #676767;
+    }
+
+    a, a:focus {
+        color: #fff;
+    }
+}

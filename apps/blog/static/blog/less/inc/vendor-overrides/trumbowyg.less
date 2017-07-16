@@ -1,0 +1,36 @@
+.trumbowyg-box,
+.trumbowyg-editor {
+    border: 0;
+    margin: 0;
+}
+
+.trumbowyg-button-pane {
+    background-color: #fff;
+    border-bottom-color: @hr-bg;
+    padding: 0 10px;
+
+    &:after {
+        display: none;
+    }
+
+    button {
+        margin: 0;
+        height: 45px;
+    }
+
+    .trumbowyg-button-group {
+        &:not(:empty) {
+            & + .trumbowyg-button-group {
+                &:before {
+                    background: @hr-bg;
+                    height: 100%;
+
+                    @media(max-width: @screen-xs-max) {
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+}
+

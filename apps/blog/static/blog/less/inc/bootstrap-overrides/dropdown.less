@@ -1,0 +1,38 @@
+.dropdown-menu() {
+    box-shadow: @dropdown-shadow;
+    padding: 10px 0;
+    border-radius: 3px;
+    top: -1px;
+    margin: 0;
+    border: 0;
+    .animated(fadeIn, 300ms);
+
+    & > li > a {
+        padding: 10px 20px;
+        .transition(background-color);
+        .transition-duration(300ms);
+    }
+}
+
+.dropdown-menu {
+    .dropdown-menu();
+}
+
+
+.dropdown-menu--icon {
+    & > li > a > .zmdi {
+        line-height: 100%;
+        vertical-align: top;
+        font-size: 18px;
+        width: 28px;
+    }
+}
+
+.dropdown-menu--block {
+    width: 100%;
+}
+
+.dropdown-menu--lg {
+    padding: 0;
+    width: 350px;
+}

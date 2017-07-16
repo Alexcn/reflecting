@@ -1,0 +1,174 @@
+//Avatar Character
+.avatar-char {
+    color: #fff;
+    text-align: center;
+    border-radius: 50%;
+    font-weight: 500;
+
+    &:not([class*="avatar-char--"]) {
+        width: 50px;
+        height: 50px;
+        font-size: 22px;
+        line-height: 50px;
+    }
+}
+
+.avatar-char--sm {
+    width: 39px;
+    height: 39px;
+    line-height: 39px;
+    font-size: 18px;
+}
+
+
+
+//View Contact Modal
+#view-contact {
+    .modal-dialog {
+        padding-top: 100px;
+
+        @media(min-width: @screen-sm-min) {
+            max-width: 420px;
+        }
+    }
+}
+
+.view-contact__img {
+    text-align: center;
+    margin-top: -100px;
+
+    img {
+        border: 5px solid #fff;
+    }
+}
+
+
+//New Contact
+.new-contact__img {
+    background-color: lighten(@hr-bg, 1%);
+    padding: 40px 20px;
+    margin: 0 5px 20px;
+    position: relative;
+    top: 5px;
+    text-align: center;
+
+    img {
+        border-radius: 50%;
+        width: 180px;
+        height: 180px;
+        border: 5px solid #fff;
+        box-shadow: 0 0 0 1px @hr-bg;
+    }
+}
+
+.new-contact__upload {
+    font-size: 25px;
+    position: absolute;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    line-height: 47px;
+    text-align: center;
+    left: 10px;
+    top: 10px;
+    cursor: pointer;
+    .transition(all);
+    .transition-duration(300ms);
+
+    &:hover {
+        background-color: rgba(0,0,0,0.08);
+        color: @text-strong;
+    }
+}
+
+
+//Add to Group
+.contact-highlight {
+    background: #f7f7f7;
+    padding: 20px 30px;
+}
+
+
+//Groups
+.groups-grid__item {
+    text-align: center;
+    padding: 25px 10px 18px;
+}
+
+.groups-grid__img {
+    width: 85px;
+    display: inline-block;
+}
+
+.groups-grid__avatar {
+    display: inline-block;
+    margin: 0 -1px 3px 0;
+    vertical-align: top;
+
+    &:not(.avatar-char) {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+    }
+}
+
+.groups-grid__info {
+    margin-top: 15px;
+
+    & > strong {
+        color: @text-strong;
+        display: block;
+    }
+}
+
+//Groups Widget
+.groups-grid--widget {
+    padding: 0 2px;
+
+    .groups-grid__item {
+        background-color: lighten(@hr-bg, 2%);
+        border: 2px solid #fff;
+        width: 50%;
+        float: left;
+
+        &:hover {
+            background-color: @hr-bg;
+        }
+    }
+}
+
+//Groups List
+.groups-grid__wrap {
+    position: relative;
+    display: inline-block;
+
+    &:hover {
+        .groups-grid__item {
+            background-color: #fbfbfb;
+        }
+    }
+}
+
+.groups-grid--listing {
+    margin: 0 -8px;
+
+    @media(max-width: @screen-sm-max) {
+        text-align: center;
+    }
+
+    .groups-grid__item {
+        .card();
+
+        width: 160px;
+        display: inline-block;
+        margin-right: 8px;
+        margin-left: 8px;
+    }
+}
+
+.groups-grid__actions {
+    position: absolute;
+    top: 8px;
+    right: 10px;
+    z-index: 1;
+}

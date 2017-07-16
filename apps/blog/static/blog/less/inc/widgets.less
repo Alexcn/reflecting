@@ -1,0 +1,164 @@
+//Grid Listing
+.grid-widget {
+    @media(min-width: @screen-xs-min) {
+        padding: 0 1px 1px 2px;
+    }
+
+    [class*="col-"] {
+        padding: 0;
+    }
+
+    .clearfix();
+
+    .slick-dots {
+        position: absolute;
+        top: 3px;
+        right: 20px;
+    }
+}
+
+.grid-widget__item {
+    display: block;
+    overflow: hidden;
+    position: relative;
+
+    & > img {
+        width: 100%;
+        display: block;
+    }
+
+    @media(min-width: @screen-xs-min) {
+        border-width: 1px 2px 2px 1px;
+        border-color: #fff;
+        border-style: solid;
+        .transition(all);
+        .transition-duration(200ms);
+
+        &:hover {
+            .opacity(0.9);
+        }
+
+        & > img {
+            border-radius: 2px;
+        }
+    }
+}
+
+.grid-widget__info {
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 100%;
+    color: #fff;
+    padding: 15px 17px 14px;
+    background-color: rgba(0, 0, 0, 0.4);
+    border-radius: 0 0 3px 3px;
+
+    & > small {
+        font-size: 12px;
+        display: block;
+    }
+
+    & > h3 {
+        margin: 0 0 3px 0;
+        font-size: 17px;
+
+    }
+
+    & > small,
+    & > h3,
+    & > h4 {
+        color: #fff;
+        .text-overflow();
+    }
+
+    & > h4 {
+        font-size: 13px;
+        margin: 0 0 3px 0;
+    }
+}
+
+
+//Properties by location
+.properties-map {
+    border: 3px solid #fff;
+    overflow: hidden;
+}
+
+.pm-item {
+    width: 100%;
+    height: 500px;
+    margin-bottom: -21px;
+}
+
+
+//Newsletter Subscription
+.subscribe {
+    padding: 40px 30px 30px;
+    text-align: center;
+
+    h2 {
+        font-size: 16px;
+        color: #fff;
+    }
+
+    small {
+        font-size: 13px;
+        color: rgba(255, 255, 255, 0.7);
+        display: block;
+        margin-bottom: 20px;
+    }
+
+    .form-control {
+        .placeholder(#fff);
+    }
+
+    .btn--circle {
+        box-shadow: none;
+        background-color: #fff;
+    }
+}
+
+.subscribe__icon {
+    color: #fff;
+    font-size: 25px;
+
+    & > i {
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        border-radius: 50%;
+        width: 60px;
+        height: 60px;
+        line-height: 60px;
+    }
+}
+
+
+//Map
+.map-widget {
+    border: 5px solid #fff;
+    overflow: hidden;
+
+    .map-widget__item {
+        width: 100%;
+        height: 250px;
+        margin-bottom: -25px;
+    }
+}
+
+
+//Tags Listing
+.tags-list__item {
+    color: @mdc-orange-300;
+    padding: 5px 10px;
+    display: inline-block;
+    border: 2px solid @mdc-orange-100;
+    margin: 0 2px 7px;
+    border-radius: 2px;
+    .transition(all);
+    .transition-duration(200ms);
+
+    &:hover {
+        color: @mdc-orange-500;
+        border-color: @mdc-orange-200;;
+    }
+}

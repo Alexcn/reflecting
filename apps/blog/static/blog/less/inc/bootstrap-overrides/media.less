@@ -1,0 +1,23 @@
+/*---------------------------------------------------------------------------------
+    Overriding the Media object in order to prevent issues like text overflow.
+----------------------------------------------------------------------------------*/
+.media {
+    margin: 0;
+    .clearfix();
+
+    & > .pull-left {
+        padding-right: 15px;
+    }
+
+    & > .pull-right {
+        padding-left: 15px;
+    }
+
+    overflow: visible;
+}
+
+.media-body {
+    zoom: 1;
+    display: block;
+    width: auto;
+}

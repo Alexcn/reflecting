@@ -1,0 +1,329 @@
+/*------------------------------------------------------------------
+[Master LESS Stylesheet]
+
+Project:	    Roost Material Design Real Estate + Dashboard
+Version:	    1.0
+Last change:	1/10/16
+Author:         Rushan [http://bootstrapsale.com]
+
+--------------------------------------------------------------------
+
+[Table of Contents]
+1.  Bootstrap
+    i.      Core variables and mixins
+    ii.     Reset and dependencies
+    iii.    Core CSS
+    iv.     Components
+    v.      Components w/ JavaScript
+    vi.     Utility classes
+
+2.  Third Party Vendors
+    i.      Material Design Color Palette
+
+3.  Site Variable and Mixin
+
+4.  Fonts
+
+5.  Bootstrap Overrides
+    i.      Form
+    ii.     Button
+    iii.    Dropdown
+    iv.     List group
+    v.      Pagination
+    vi.     Media
+    vii.    Close
+    viii.   Caret
+    ix.     Modal
+    x.      Tooltip
+    xi.     Tab
+
+6.  Site Styles
+    i.      Base Styles
+    ii.     Generic Classes
+    iii.    Cards
+    iv.     Headers
+    v.      Listings
+    vi.     Widgets
+    vii.    Footer
+    viii.   Charts
+    ix.     Profile
+    x.      Mortgages
+    xi.     Submit Property
+    xii.    Neighborhood Guide
+    xiii.   Miscellaneous
+    xiv.    Blog
+    xv.     Contact Page
+    xvi.    Error 404
+    xvii.   Older Browser Warning
+    xviii.  Print Styles
+
+7.  Dashboard Styles
+    i.      Layout
+    ii.     Header
+    iii.    Sidebar
+    iv.     Tasks
+    v.      List Group
+    vi.     Leads
+    vii.    Contacts
+    viii.   Notes
+    ix.     Calendar
+    x.      Questions and Answers
+    xi.     Activity Log
+    xii.    FAQ
+    xiii.   Team
+    xiv.    Miscellaneous
+
+8.  Third party Vendor Overrides
+    i.      Select 2
+    ii.     Slick Carousel
+    iii.    NoUiSlider
+    iv.     Waves
+    v.      Light Gallery
+    vi.     RateYo
+    vii.    SweetAlert
+
+--------------------------------------------------------------------*/
+
+/*----------------------------
+    1. Bootstrap
+-----------------------------*/
+/* Core variables and mixins */
+@import '../vendors/bootstrap/less/variables.less';
+@import '../vendors/bootstrap/less/mixins.less';
+
+/* Reset and dependencies */
+@import '../vendors/bootstrap/less/normalize.less';
+@import '../vendors/bootstrap/less/print.less';
+
+/* Core CSS */
+@import '../vendors/bootstrap/less/scaffolding.less';
+@import '../vendors/bootstrap/less/type.less';
+@import '../vendors/bootstrap/less/grid.less';
+@import '../vendors/bootstrap/less/tables.less';
+@import '../vendors/bootstrap/less/forms.less';
+@import '../vendors/bootstrap/less/buttons.less';
+
+/* Components */
+@import '../vendors/bootstrap/less/component-animations.less';
+@import '../vendors/bootstrap/less/dropdowns.less';
+@import '../vendors/bootstrap/less/button-groups.less';
+@import '../vendors/bootstrap/less/breadcrumbs.less';
+@import '../vendors/bootstrap/less/pagination.less';
+@import '../vendors/bootstrap/less/labels.less';
+@import '../vendors/bootstrap/less/alerts.less';
+@import '../vendors/bootstrap/less/progress-bars.less';
+@import '../vendors/bootstrap/less/media.less';
+@import '../vendors/bootstrap/less/list-group.less';
+@import '../vendors/bootstrap/less/navs.less';
+
+/* Components w/ JavaScript */
+@import '../vendors/bootstrap/less/modals.less';
+@import '../vendors/bootstrap/less/tooltip.less';
+@import '../vendors/bootstrap/less/carousel.less';
+
+/* Utility classes */
+@import '../vendors/bootstrap/less/utilities.less';
+@import '../vendors/bootstrap/less/responsive-utilities.less';
+
+
+/*---------------------------------
+    2. Third Party Vendors
+----------------------------------*/
+/* Material Design Color Palette */
+@import '../vendors/bower_components/material-design-color-palette/less/material-design-color-palette';
+
+
+/*---------------------------------
+    3. Site Variable and Mixin
+----------------------------------*/
+@import 'inc/variables';
+@import 'inc/mixin';
+
+
+/*---------------------------------
+    4. Fonts
+----------------------------------*/
+@import 'inc/font';
+
+
+/*---------------------------------
+    5. Bootstrap Overrides
+----------------------------------*/
+/* Form */
+@import 'inc/form/input-field';
+@import 'inc/form/form-group';
+@import 'inc/form/checkbox-radio';
+@import 'inc/form/validation';
+@import 'inc/bootstrap-overrides/label';
+
+/* Buttons */
+@import 'inc/bootstrap-overrides/buttons';
+
+/* Dropdown */
+@import 'inc/bootstrap-overrides/dropdown';
+
+/* List Group */
+@import 'inc/bootstrap-overrides/list-group';
+
+/* Pagination */
+@import 'inc/bootstrap-overrides/pagination';
+
+/* Media */
+@import 'inc/bootstrap-overrides/media';
+
+/* Close */
+@import 'inc/bootstrap-overrides/close';
+
+/* Caret */
+@import 'inc/bootstrap-overrides/caret';
+
+/* Modal */
+@import 'inc/bootstrap-overrides/modal';
+
+/* Tooltip */
+@import 'inc/bootstrap-overrides/tooltip';
+
+/* Tab */
+@import 'inc/bootstrap-overrides/tab';
+
+
+
+/*---------------------------------
+    6. Site Styles
+----------------------------------*/
+/* Base Styles */
+@import 'inc/base';
+
+/* Generic Classes */
+@import 'inc/generics';
+
+/* Cards */
+@import 'inc/cards';
+
+/* Headers */
+@import 'inc/header';
+@import 'inc/action-header';
+
+/* Listings */
+@import 'inc/listing';
+@import 'inc/listing-detail';
+
+/* Widgets */
+@import 'inc/widgets';
+
+/* Footer */
+@import 'inc/footer';
+
+/* Charts */
+@import 'inc/chart';
+
+/* Profile */
+@import 'inc/profile';
+
+/* Mortgages */
+@import 'inc/mortgage';
+
+/* Submit Property */
+@import 'inc/submit-property';
+
+/* Neighborhood Guide */
+@import 'inc/neighborhood-guide';
+
+/* Miscellaneous */
+@import 'inc/misc';
+
+/* Blog */
+@import 'inc/blog';
+
+/* Contact Page */
+@import 'inc/contact';
+
+/* Error 404 */
+@import 'inc/404';
+
+/* Older Browser Warning */
+@import 'inc/ie-warning';
+
+/* Print Styles */
+@import 'inc/print';
+
+
+/*---------------------------------
+    7. Dashboard Styles
+----------------------------------*/
+/* Layout */
+@import 'inc/dashboard/layout';
+
+/* Header */
+@import 'inc/dashboard/header';
+@import 'inc/dashboard/action-header';
+
+/* Sidebar */
+@import 'inc/dashboard/sidebar';
+
+/* Tasks */
+@import 'inc/dashboard/tasks';
+
+/* List Group */
+@import 'inc/dashboard/list-group';
+
+/* Leads */
+@import 'inc/dashboard/leads';
+
+/* Contacts */
+@import 'inc/dashboard/contacts';
+
+/* Notes */
+@import 'inc/dashboard/notes';
+
+/* Calendar */
+@import 'inc/dashboard/calendar';
+
+/* Questions and Answers */
+@import 'inc/dashboard/questions-answers';
+
+/* Activity Log */
+@import 'inc/dashboard/activity-log';
+
+/* FAQ */
+@import 'inc/dashboard/faq';
+
+/* Team */
+@import 'inc/dashboard/team';
+
+/* Miscellaneous */
+@import 'inc/dashboard/misc';
+
+/* Footer */
+@import 'inc/dashboard/footer';
+
+
+/*---------------------------------
+    8. Third party Vendor Overrides
+----------------------------------*/
+/* Select 2 */
+@import 'inc/vendor-overrides/selec2';
+
+/* Slick Carousel */
+@import 'inc/vendor-overrides/slick';
+
+/* NoUiSlider */
+@import 'inc/vendor-overrides/nouislider';
+
+/* Waves */
+@import 'inc/vendor-overrides/waves';
+
+/* Light Gallery */
+@import 'inc/vendor-overrides/light-gallery';
+
+/* RateYo */
+@import 'inc/vendor-overrides/rateyo';
+
+/* SweetAlert */
+@import 'inc/vendor-overrides/sweetalert';
+
+/* FullCalendar */
+@import 'inc/vendor-overrides/fullcalendar';
+
+/* Trumbowyg */
+@import 'inc/vendor-overrides/trumbowyg';

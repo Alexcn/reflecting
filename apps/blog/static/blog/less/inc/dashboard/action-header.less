@@ -1,0 +1,33 @@
+// Alternative action header for dashboard
+.action-header-alt {
+    box-shadow: none;
+    background-color: #eaeaea;
+    padding: 12px 20px;
+    z-index: 1;
+    left: 0;
+    width: 100%;
+    position: fixed;
+
+    @media(min-width: @screen-lg-min) {
+        padding-left: 260px;
+        top: 70px;
+    }
+
+    @media(max-width: @screen-sm-max) {
+        position: absolute;
+        top: 0;
+    }
+}
+
+/*----------------------------
+    View switch
+-----------------------------*/
+.action-header__views {
+    & > a {
+        color: #a0a0a0;
+
+        &.active {
+            color: @mdc-blue-500;
+        }
+    }
+}

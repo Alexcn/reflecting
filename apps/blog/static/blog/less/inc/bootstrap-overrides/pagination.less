@@ -1,0 +1,40 @@
+.pagination {
+    border-radius: 0;
+
+    & > li {
+        margin: 0 1px;
+        display: inline-block;
+        vertical-align: top;
+
+        & > a,
+        & > span {
+            &,
+            &:last-child,
+            &:first-child {
+                border-radius: 50%;
+            }
+
+            padding: 0;
+            width: 40px;
+            height: 40px;
+            line-height: 38px;
+            text-align: center;
+            font-size: 14px;
+            z-index: 1;
+            position: relative;
+            cursor: pointer;
+            background-clip: padding-box;
+            .transition(all);
+            .transition-duration(300ms);
+
+            & > .zmdi {
+                font-size: 21px;
+                line-height: 40px;
+            }
+        }
+
+        &.disabled {
+            .opacity(0.5);
+        }
+    }
+}

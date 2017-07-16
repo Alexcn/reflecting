@@ -1,0 +1,92 @@
+/*---------------------------------------------------------------------------
+    Generate Margin Class
+    margin, margin-top, margin-bottom, margin-left, margin-right
+----------------------------------------------------------------------------*/
+
+.margin (@label, @size: 1, @key:1) when (@size =< 30){
+    .m-@{key} {
+        margin: @size;
+    }
+
+    .m-t-@{key} {
+        margin-top: @size;
+    }
+
+    .m-b-@{key} {
+        margin-bottom: @size;
+    }
+
+    .m-l-@{key} {
+        margin-left: @size;
+    }
+
+    .m-r-@{key} {
+        margin-right: @size;
+    }
+
+    .margin(@label - 5; @size + 5; @key + 5);
+}
+
+.margin(25, 0px, 0);
+
+
+
+/*---------------------------------------------------------------------------
+    Generate Padding Class
+    padding, padding-top, padding-bottom, padding-left, padding-right
+----------------------------------------------------------------------------*/
+.padding (@label, @size: 1, @key:1) when (@size =< 30){
+    .p-@{key} {
+        padding: @size;
+    }
+
+    .p-t-@{key} {
+        padding-top: @size;
+    }
+
+    .p-b-@{key} {
+        padding-bottom: @size;
+    }
+
+    .p-l-@{key} {
+        padding-left: @size;
+    }
+
+    .p-r-@{key} {
+        padding-right: @size;
+    }
+
+    .padding(@label - 5; @size + 5; @key + 5);
+}
+
+.padding(25, 0px, 0);
+
+
+
+/*---------------------------------------------------------------------------
+    Generate Font-Size Classes (8px - 20px)
+----------------------------------------------------------------------------*/
+.font-size (@label, @size: 8, @key:10) when (@size =< 20){
+    .f-@{key} {
+        font-size: @size;
+    }
+
+    .font-size(@label - 1; @size + 1; @key + 1);
+}
+
+.font-size(20, 8px, 8);
+
+
+/*-------------------------
+    Colors
+--------------------------*/
+.text-strong {
+    color: #2e353b;
+}
+
+/*-------------------------
+    Text Overflow
+--------------------------*/
+.text-overflow {
+    .text-overflow();
+}

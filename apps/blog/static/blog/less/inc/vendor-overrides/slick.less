@@ -1,0 +1,109 @@
+.header__recommended {
+    .slick-arrow {
+        position: absolute;
+        font-size: 0;
+        width: 41px;
+        height: 41px;
+        border-radius: 50%;
+        border: 0;
+        background: rgba(0,0,0,0.1);
+        top: 50%;
+        margin-top: -20px;
+        text-align: center;
+
+        &, &:before {
+            .transition(all);
+            .transition-duration(300ms);
+        }
+
+        &:not(.slick-disabled):hover {
+            background: rgba(0,0,0,0.2);
+            
+            &:before {
+                color: #fff;
+            }
+        }
+
+        &:before {
+            font-family: @font-family-icon;
+            font-size: 25px;
+            color: rgba(255,255,255,0.8);
+            line-height: 37px;
+        }
+    }
+
+    .slick-prev {
+        left: 22px;
+
+        &:before {
+            content: '\f2fa';
+        }
+    }
+
+    .slick-next {
+        right: 22px;
+
+        &:before {
+            content: '\f2fb';
+            margin-right: -3px;
+        }
+    }
+    
+    .slick-disabled {
+        .opacity(0);
+        .scale(0);
+    }
+}
+
+.slick-dots {
+    .list-inline();
+    text-align: center;
+    margin-top: 10px;
+
+    & > li {
+        button {
+            border: 0;
+            font-size: 0;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            margin: 0 5px;
+            background-color: rgba(0, 0, 0, 0.2);
+            padding: 0;
+            position: relative;
+
+            &:before {
+                content: '';
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                top: 20px;
+                left: 0;
+                background-color: rgba(0, 0, 0, 0.7);
+                border-radius: 50%;
+                .opacity(0);
+                .transition(all);
+                .transition-duration(250ms);
+            }
+        }
+
+        &.slick-active {
+            button:before {
+                .opacity(1);
+                top: 0;
+            }
+        }
+    }
+
+    &.slick-dots-light {
+        & > li {
+            button {
+                background-color: rgba(255, 255, 255, 0.2);
+
+                &:before {
+                    background-color: rgba(255, 255, 255, 0.7);
+                }
+            }
+        }
+    }
+}

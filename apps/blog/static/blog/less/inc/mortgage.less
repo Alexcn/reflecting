@@ -1,0 +1,104 @@
+.mortgage-rates {
+    border-radius: 3px;
+
+    &, .card {
+        background-color: @mdc-light-blue-500;
+    }
+}
+
+.mortgage__logo {
+    padding: 20px;
+    border-right: 1px solid #f1f1f1;
+
+    img {
+        width:62px;
+        margin-right: 5px;
+        margin-top: 5px;
+    }
+}
+
+.mortgage__header {
+    border-bottom: 1px solid #f3f3f3;
+
+    .actions {
+        position: absolute;
+        top: 38px;
+        right: 20px;
+    }
+}
+
+.mortgage__name {
+    padding: 20px;
+
+    strong {
+        display: block;
+        color: @text-strong;
+        font-size: 14px;
+    }
+
+    small {
+        margin: 0;
+        color: @text-muted;
+    }
+
+    .rmd-rate {
+        margin: 5px 0 0 -4px;
+    }
+}
+
+.mortgage__body {
+    padding: 25px 30px;
+
+    .btn {
+        box-shadow: none;
+        margin: 25px 0 10px;
+    }
+}
+
+.mortgage__info {
+    small {
+        color: @text-muted;
+        font-size: 14px;
+        font-weight: 500;
+    }
+
+    h2 {
+        font-weight: normal;
+        margin: 0;
+        font-size: 30px;
+    }
+}
+
+.mortgage__list {
+    list-style: none;
+    margin: 15px 0 0 0;
+    padding: 0;
+
+    & > li {
+        color: @text-muted;
+        font-weight: 500;
+        padding: 6px 0;
+
+        & > i {
+            width: 20px;
+            height: 18px;
+            background-repeat: no-repeat;
+            background-position: center;
+            display: inline-block;
+            vertical-align: top;
+            margin-right: 5px;
+
+            &.mortgage__percentage {
+                .img-retina('../img/icons/percentage.png', '../img/icons/percentage@2x.png', 18px, 18px);
+            }
+
+            &.mortgage__permonth {
+                .img-retina('../img/icons/per_month.png', '../img/icons/per_month@2x.png', 14px, 15px);
+            }
+
+            &.mortgage__fee {
+                .img-retina('../img/icons/fee.png', '../img/icons/fee@2x.png', 20px, 15px);
+            }
+        }
+    }
+}

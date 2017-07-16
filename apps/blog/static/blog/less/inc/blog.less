@@ -1,0 +1,111 @@
+.blog__tags {
+    padding: 25px 5px 18px;
+    text-align: center;
+    margin-top: 25px;
+    border-bottom: 1px solid #f6f6f6;
+    border-top: 1px solid #f6f6f6;
+}
+
+.blog__arthur {
+    padding: 30px;
+
+    @media (max-width: @screen-xs-max) {
+        text-align: center;
+    }
+}
+
+.blog__arthur-img {
+    & > img {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+    }
+
+    @media(min-width: @screen-sm-min) {
+        float: left;
+        padding-right: 20px;
+    }
+
+    @media (max-width: @screen-xs-max) {
+        display: block;
+        margin-bottom: 20px;
+    }
+}
+
+.blog__arthur-contents {
+    overflow: hidden;
+
+    h2 {
+        font-size: 15px;
+        margin: 0 0 10px;
+    }
+}
+
+.blog__arthur-social {
+    margin: 0 -1px;
+
+    & > a {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        color: #fff;
+        line-height: 30px;
+        font-size: 16px;
+        text-align: center;
+        display: inline-block;
+        margin: 0 1px;
+    }
+}
+
+.blog-comment__up {
+    text-align: center;
+    margin-top: 5px;
+
+    span {
+        background-color: @mdc-red-400;
+        border-radius: 2px;
+        padding: 0 5px 1px;
+        display: inline-block;
+        font-size: 11px;
+        color: #fff;
+    }
+}
+
+.actions--blog-comment {
+    position: absolute;
+    top: 15px;
+    right: 10px;
+}
+
+
+.blog-comment__reply {
+    padding: 20px 20px 14px;
+    background: @input-border;
+    border-radius: 2px;
+    margin-bottom: 10px;
+
+    textarea {
+        display: block;
+        width: 100%;
+        margin-bottom: 15px;
+        border: 0;
+        border-radius: 2px;
+        padding: 10px;
+        min-height: 70px;
+        resize: none;
+    }
+}
+
+.blog-more {
+    margin-top: 30px;
+
+    & > a {
+        font-size: 13px;
+        color: @text-strong;
+        text-transform: uppercase;
+
+        &:hover {
+            color: lighten(@text-strong, 10%);
+        }
+    }
+}

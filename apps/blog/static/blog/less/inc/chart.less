@@ -1,0 +1,52 @@
+[class*="flot-chart"] {
+    width: 100%;
+    display: block;
+}
+
+.flot-chart {
+    height: 250px;
+}
+
+.flot-chart-pie {
+    height: 300px;
+
+    @media (min-width: @screen-sm-min) {
+        margin-bottom: 20px;
+    }
+}
+
+.flot-tooltip, #flotTip {
+    position: absolute;
+    color: @text-strong;
+    display: none;
+    font-size: 12px;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+    padding: 3px 10px;
+    background-color: #fff;
+    z-index: 99999;
+    border-radius: 2px;
+}
+
+.flot-chart__legends {
+    text-align: center;
+    margin: 15px 0 -5px;
+
+    table {
+        display: inline-block;
+    }
+
+    .legendColorBox {
+        & > div {
+            & > div {
+                border-radius: 50%;
+            }
+        }
+    }
+
+    .legendLabel {
+        padding: 0 8px 0 3px;
+    }
+}
+
+
+

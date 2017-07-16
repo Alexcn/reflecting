@@ -1,0 +1,32 @@
+#main {
+    padding-top: 70px;
+
+    @media(min-width: @screen-lg-min) {
+        padding-left: 250px;
+    }
+}
+
+#main__content {
+    position: relative;
+}
+
+.main__container {
+    width: 100%;
+    margin: 0 auto;
+
+    @media (min-width: @screen-sm-min) {
+        padding: 100px 40px;
+    }
+
+    @media (max-width: @screen-xs-max) {
+        padding: 100px 15px 50px;
+    }
+
+    &:not(.main__container-sm) {
+        max-width: 1200px;
+    }
+}
+
+.main__container-sm {
+    max-width: 900px;
+}

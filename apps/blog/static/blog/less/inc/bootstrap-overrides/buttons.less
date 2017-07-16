@@ -1,0 +1,126 @@
+.btn {
+    text-transform: uppercase;
+    border: 0;
+    font-weight: 500;
+    .user-select(none);
+    
+    &.active,
+    &:focus,
+    &:active {
+       box-shadow: none;
+    }
+    
+    &[class*="mdc-bg-"] {
+        color: #fff;
+    }
+}
+
+.btn:not(.btn-link),
+.btn-group:not([data-toggle="buttons"]) {
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+}
+
+.btn-group {
+    .btn {
+        box-shadow: none;
+    }
+}
+
+.btn-link {
+    font-weight: 500;
+    border-radius: 2px;
+    overflow: hidden;
+
+    &:not(.btn-link-light) {
+        &, &:focus {
+            color: @text-strong;
+        }
+    }
+
+    &.btn-link-light {
+        &, &:focus, &:hover {
+            color: #fff;
+        }
+    }
+
+    &:hover {
+        color: #000;
+    }
+
+    .transition(color);
+    .transition-duration(300ms);
+}
+
+
+/*----------------------------
+  Toggle Buttons
+-----------------------------*/
+[data-toggle="buttons"] {
+    border-radius: 2px;
+    overflow: hidden;
+
+    margin-top: 3px;
+
+    .btn {
+        font-size: 12px;
+        text-transform: none;
+        .text-overflow();
+    }
+
+    &:not(.btn-group--light) {
+        background-color: @input-border;
+
+        .btn {
+            &:hover {
+                color: @text-color;
+            }
+
+            &.active {
+                background-color: @mdc-light-blue-400;
+                color: #fff;
+            }
+        }
+    }
+
+    &.btn-group--light {
+        background-color: rgba(255,255,255,0.2);
+
+        .btn {
+            color: #fff;
+
+            &.active {
+                background-color: #fff;
+                color: @text-color;
+            }
+        }
+    }
+}
+
+
+/*----------------------------
+  Action Button
+-----------------------------*/
+.btn--action {
+    background-color: #F44336;
+    position: fixed;
+    bottom: 40px;
+    right: 40px;
+    z-index: 20;
+
+    & > i {
+        color: #fff;
+    }
+}
+
+/*----------------------------
+  Circular Buttons
+-----------------------------*/
+.btn--circle {
+    border-radius: 50%;
+    text-align: center;
+    width: 50px;
+    height: 50px;
+    line-height: 52px;
+    font-size: 20px;
+    padding: 0;
+}

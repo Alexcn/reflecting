@@ -1,0 +1,115 @@
+//Sidebar
+#main__sidebar {
+    width: 250px;
+    position: fixed;
+    z-index: 2;
+    left: 0;
+    background: #fff;
+    box-shadow: 0 1px 1px rgba(0,0,0,.1);
+    overflow: auto;
+
+    @media(min-width: @screen-md-max) {
+        height: ~"calc(100% - 70px)";
+        top: 70px;
+    }
+
+    @media(max-width: @screen-md-max) {
+        .transition(all);
+        .transition-duration(300ms);
+        .translate3d(-270px, 0, 0);
+        .opacity(0);
+        top: 0;
+        height: 100%;
+        z-index: 101;
+
+        &.toggled {
+            .translate3d(0, 0, 0);
+            .opacity(1);
+
+            .main__block-close > i {
+                left: 0;
+                .opacity(1);
+            }
+        }
+    }
+}
+
+
+//Menu
+.main-menu {
+    list-style: none;
+    padding: 0;
+
+    @media(min-width: @screen-lg-min) {
+        margin: 30px 0 0;
+    }
+
+    a {
+        .transition(all);
+        .transition-duration(300ms);
+    }
+
+    a:hover,
+    .active > a,
+    a.active {
+        color: #262626;
+    }
+
+    & > li {
+        & > a {
+            padding: 14px 20px 14px 65px;
+            display: block;
+            font-weight: 500;
+            position: relative;
+            color: #4C4C4C;
+
+            & > i {
+                position: absolute;
+                left: 25px;
+                font-size: 20px;
+                top: 0;
+                width: 25px;
+                text-align: center;
+                padding: 13px 0;
+            }
+        }
+
+        & > a:hover,
+        &.active > a {
+            background-color: #f7f7f7;
+        }
+    }
+}
+
+
+//Menu Close
+.main__block-close {
+    display: block;
+    height: 70px;
+    background: @mdc-indigo-500;
+    margin-bottom: 20px;
+
+    &,
+    &:hover,
+    &:focus,
+    &> i {
+        color: #fff;
+    }
+
+    & > i {
+        font-size: 20px;
+        width: 37px;
+        height: 37px;
+        background: rgba(255,255,255,0.15);
+        border-radius: 50%;
+        text-align: center;
+        line-height: 37px;
+        margin: 17px 22px;
+        position: relative;
+        .opacity(0);
+        .transition(left);
+        .transition-duration(200ms);
+        .transition-delay(200ms);
+        left: -70px;
+    }
+}

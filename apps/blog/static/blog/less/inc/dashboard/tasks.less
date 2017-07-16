@@ -1,0 +1,26 @@
+.tasks-lists {
+    .list-group-item {
+        .checkbox {
+            color: @text-strong;
+            margin: 0;
+
+            input:checked {
+                & + .checkbox__helper + * {
+                    text-decoration: line-through;
+                }
+            }
+        }
+    }
+
+    .list-group__attrs {
+        padding-left: 50px;
+        margin-top: 10px;
+    }
+}
+
+.tasks-list__info {
+    & > small {
+        display: block;
+        margin-top: 3px;
+    }
+}

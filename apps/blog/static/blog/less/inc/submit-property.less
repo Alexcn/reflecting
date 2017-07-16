@@ -1,0 +1,122 @@
+.submit-property {
+    text-align: center;
+}
+
+.submit-property__steps {
+    .list-inline();
+    position: relative;
+    display: inline-block;
+
+    & > .submit-property__caret,
+    & > li > a {
+        .transition(all);
+        .transition-duration(250ms);
+    }
+
+    & > .submit-property__caret {
+        content: '';
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 0 12px 15px 12px;
+        border-color: transparent transparent #fff transparent;
+        .rotate(360deg);
+        position: absolute;
+        bottom: -43px;
+        left: 10px;
+    }
+
+    & > li {
+        & > a {
+            display: block;
+            width: 35px;
+            height: 35px;
+            background-color: #fff;
+            border-radius: 50%;
+            line-height: 35px;
+            color: #b9b9b9;
+            margin: 0 4px;
+        }
+
+        &.active {
+            & > a {
+                background-color: @mdc-light-blue-500;
+                color: #fff;
+            }
+
+            &:nth-child(2) ~ .submit-property__caret {
+                left: ~"calc(20% + 10px)";
+            }
+
+            &:nth-child(3) ~ .submit-property__caret {
+                left: ~"calc(40% + 10px)";
+            }
+
+            &:nth-child(4) ~ .submit-property__caret {
+                left: ~"calc(60% + 10px)";
+            }
+
+            &:nth-child(5) ~ .submit-property__caret {
+                left: ~"calc(80% + 10px)";
+            }
+        }
+    }
+}
+
+.submit-property__content {
+    margin-top: 40px;
+
+    .tab-pane {
+        max-width: 600px;
+        margin: 0 auto;
+        position: relative;
+
+        .card {
+            padding: 20px 0 20px;
+        }
+    }
+
+    .card__body {
+        max-width: 450px;
+        margin: 20px auto 0;
+    }
+    
+    .checkbox {
+        display: inline-block;
+    }
+}
+
+
+.submit-property__button {
+    position: absolute;
+    bottom: -25px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    .animated(zoomIn, 250ms);
+}
+
+.submit-property__success {
+    padding: 20px;
+    max-width: 500px;
+    margin: 0 auto;
+    width: 100%;
+
+    & > i {
+        width: 70px;
+        height: 70px;
+        border-radius: 50%;
+        color: #fff;
+        text-align: center;
+        line-height: 70px;
+        font-size: 30px;
+        background-color: @mdc-green-500;
+        display: inline-block;
+        .animated(zoomIn, 500ms);
+    }
+
+    & > h2 {
+        font-size: 17px;
+        margin: 20px 0 15px;
+    }
+}

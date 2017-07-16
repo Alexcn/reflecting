@@ -1,0 +1,245 @@
+{% extends 'blog_base.html' %}
+{% load staticfiles %}
+{% block title %}
+    <title>{{ article.title }}</title>
+    <meta name="keywords" content={{ article.get_tag }}>
+    <meta name="description" content=笔名安生，用博客记录成长!>
+{% endblock %}
+{% block custom_css %}
+    <!-- Material design colors -->
+    <link href="{% static 'blog/vendors/material-design-iconic-font/dist/css/material-design-iconic-font.min.css' %}" rel="stylesheet">
+
+    <!-- CSS animations -->
+    <link rel="stylesheet" href="{% static 'blog/vendors/animate.min.css' %}">
+
+    <!-- Site -->
+    <link rel="stylesheet" href="{% static 'blog/css/app_1.min.css' %}">
+    <link rel="stylesheet" href="{% static 'blog/css/app_2.min.css' %}">
+    <link rel="stylesheet" href="{% static 'editormd/css/editormd.preview.css' %}"/>
+    <!-- Page Loader JS -->
+    <script src="{% static 'blog/js/page-loader.min.js' %}" async></script>
+    <style>
+        .editormd-preview-container, .editormd-html-preview {
+            padding: 0;
+        }
+    </style>
+{% endblock %}
+{% block container %}
+    <section class="section">
+        <div class="container">
+
+            <article class="card blog">
+                <div class="card__header">
+                    <h1 style="font-size: 19px">{{ article.title }}</h1>
+
+                    <small>
+                        <span>发布时间：{{ article.created_time }}</span>
+                        <span>浏览（{{ article.read }}）</span>
+                        <span>评论（{{ article.get_comment_num }}）</span>
+                        <span>分类：{{ article.get_categories }}</span>
+                    </small>
+                </div>
+
+                <div class="card__body">
+                    <div id="test-editormd-view2">
+                        <textarea id="append-test" style="display:none;">
+{{ article.body }}
+                </textarea>
+                    </div>
+                </div>
+
+                <div class="blog__tags">
+                    {% for tag in article.get_tags %}
+                        <a href="{% url 'index' %}?tag={{ tag.name }}" class="tags-list__item">#{{ tag.name }}</a>
+                    {% endfor %}
+
+                </div>
+
+                <div class="blog__arthur">
+                    <div class="blog__arthur-contents">
+                        <h2>作者：<a href="https://blog.ansheng.me/">安生</a></h2>
+                        <p>出处：<a href="{{ url }}">{{ url }}</a></p>
+                        <p>本文章采用<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">知识共享署名-非商业性使用-相同方式共享4.0国际许可协议</a>进行许可。</p>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Comment Lists -->
+            <div class="card list-group blog-comment">
+                <div class="list-group__header clearfix">
+                    <span class="pull-left">{{ article.get_comment_num }}条迄今为止的评论</span>
+                    <a href="#blog-comment" data-rmd-action="scroll-to" data-rmd-target="#blog-comment" data-rmd-offset="85" class="pull-right"><span class="hidden-xs">添加一个 </span>评论</a>
+                </div>
+
+                {% for comment in comments %}
+
+                    <div class="list-group-item media">
+                        <a href="" class="pull-left">
+                            <img src="{{ MEDIA_URL }}{{ comment.user.image }}" class="list-group__img img-circle" width="50" height="50" alt="">
+                        </a>
+                        <div class="media-body list-group__text">
+                            <strong>{{ comment.user.nick_name }}</strong>
+                            <small>评论时间：{{ comment.add_time }}</small>
+                            <p class="m-t-15">{{ comment.body }}</p>
+                            <div class="actions actions--blog-comment dropdown">
+                                <a href="" data-toggle="dropdown"><i class="zmdi zmdi-more-vert"></i></a>
+                                <ul class="dropdown-menu dropdown-menu--icon pull-right">
+                                    <li><a onclick="ShowReply({{ comment.id }},'reply')" data-rmd-action="blog-comment-open" style="cursor:pointer;"><i class="zmdi zmdi-mail-reply"></i> 回复</a></li>
+                                </ul>
+                            </div>
+                        </div>
+
+
+                        <!-- Sub comment list -->
+                        {% for reply in comment.get_reply %}
+                            <div class="list-group-item media">
+                                <a href="" class="pull-left">
+                                    <img src="{{ MEDIA_URL }}{{ reply.user.image }}" class="list-group__img img-circle" width="50" height="50" alt="">
+                                </a>
+                                <div class="media-body list-group__text">
+                                    <strong>{{ reply.user.nick_name }}
+                                        <small class="text-muted">@{{ reply.comment.user.nick_name }}</small>
+                                    </strong>
+                                    <small>回复时间：{{ reply.add_time }}</small>
+                                    <p class="m-t-15">
+                                        {{ reply.body }}
+                                    </p>
+                                    <!--
+                                    <div class="actions actions--blog-comment dropdown">
+                                        <a href="" data-toggle="dropdown"><i class="zmdi zmdi-more-vert"></i></a>
+                                        <ul class="dropdown-menu dropdown-menu--icon pull-right">
+                                            <li><a onclick="ShowReply({{ comment.id }},'replyreply',{{ reply.user.id }})" data-rmd-action="blog-comment-open" style="cursor:pointer;"><i class="zmdi zmdi-mail-reply"></i> 回复</a></li>
+                                        </ul>
+                                    </div>
+                                    -->
+                                </div>
+                            </div>
+                            <!-- End sub comment list -->
+                        {% endfor %}
+                    </div>
+                {% endfor %}
+            </div>
+            <!-- Post a comment -->
+            <div id="blog-comment" class="card card--dark" style="background-color: #3949AB">
+                <div class="card__header">
+                    <h2 id="ReplyCommentTips">发表你的评论</h2>
+                    <small>在这里你可以畅所欲言~</small>
+                </div>
+                <div class="card__body">
+                    <div class="form-group form-group--light form-group--float">
+                        <textarea class="textarea-autoheight form-control" placeholder="写一些你要评论或回复的内容吧..." id="CommentBody"></textarea>
+                        <i class="form-group__bar"></i>
+                    </div>
+                    {% if request.user.is_authenticated == True %}
+                        <button id="ReplyComment" class="btn btn-default btn-sm m-t-15">添加评论</button>
+                    {% else %}
+                        <div class="load-more">
+                            <a style="background-color: #fff;" href="{% url 'login' %}">登录后才可以评论哦~</a>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+{% block custom_js %}
+    <!-- Javascript -->
+
+    <!-- jQuery -->
+    <script src="{% static 'blog/vendors/jquery/dist/jquery.min.js' %}"></script>
+
+    <!-- Bootstrap -->
+    <script src="{% static 'blog/vendors/bootstrap/dist/js/bootstrap.min.js' %}"></script>
+
+    <!-- Waves button ripple effects -->
+    <script src="{% static 'blog/vendors/Waves/dist/waves.min.js' %}"></script>
+
+    <!-- Autosize - Auto height textarea -->
+    <script src="{% static 'blog/vendors/autosize/dist/autosize.min.js' %}"></script>
+
+    <!-- rateYo - Ratings -->
+    <script src="{% static 'blog/vendors/src/jquery.rateyo.js' %}"></script>
+
+    <!-- jsSocials - Social link sharing -->
+    <script src="{% static 'blog/vendors/jssocials/dist/jssocials.min.js' %}"></script>
+
+    <!-- IE9 Placeholder -->
+    <!--[if IE 9 ]>
+    <script src="{% static 'blog/vendors/jquery-placeholder/jquery.placeholder.min.js' %}"></script>
+    <![endif]-->
+
+    <script src="{% static 'editormd/lib/marked.min.js' %}"></script>
+    <script src="{% static 'editormd/lib/prettify.min.js' %}"></script>
+    <script src="{% static 'editormd/lib/raphael.min.js' %}"></script>
+    <script src="{% static 'editormd/lib/underscore.min.js' %}"></script>
+    <script src="{% static 'editormd/lib/sequence-diagram.min.js' %}"></script>
+    <script src="{% static 'editormd/lib/flowchart.min.js' %}"></script>
+    <script src="{% static 'editormd/lib/jquery.flowchart.min.js' %}"></script>
+    <script src="{% static 'editormd/editormd.js' %}"></script>
+    <script type="text/javascript">
+        function AddComment() {
+            var body = $('#CommentBody').val();
+            $.ajax({
+                type: "POST",
+                url: "{% url 'blog:comment' %}",
+                data: {
+                    url: '{{ article.url }}',
+                    body: body,
+                    csrfmiddlewaretoken: '{{ csrf_token }}'
+                },
+                success: function (data) {
+                    if (data != '') {
+                        window.location = "{% url 'login' %}"
+                    }
+                    window.location.reload();
+                },
+                error: function (jqXHR, textStatus, errorThrown) {
+                    alert(jqXHR, textStatus, errorThrown);
+                }
+            });
+        }
+        function ShowReply(ID) {
+            $('#ReplyCommentTips').text(values = '回复评论');
+            var ReplyComment = $('#ReplyComment');
+            ReplyComment.text(values = '添加回复');
+            window.location.href = '#blog-comment';
+            ReplyComment.unbind();
+            ReplyComment.bind('click', function () {
+                var body = $('#CommentBody').val();
+                $.ajax({
+                    type: "POST",
+                    url: "{% url 'blog:reply' %}",
+                    data: {
+                        url: '{{ article.url }}',
+                        body: body,
+                        commentid: ID,
+                        csrfmiddlewaretoken: '{{ csrf_token }}'
+                    },
+                    success: function (data) {
+                        if (data != '') {
+                            window.location = "{% url 'login' %}"
+                        }
+                        window.location.reload();
+                    },
+                    error: function (jqXHR, textStatus, errorThrown) {
+                        alert(jqXHR, textStatus, errorThrown);
+                    }
+                });
+            });
+        }
+        $(function () {
+            var testEditormdView2;
+            testEditormdView2 = editormd.markdownToHTML("test-editormd-view2", {
+                htmlDecode: "style,script,iframe",
+                markdownSourceCode: true,
+                emoji: true,
+                taskList: true,
+                tex: true,
+                flowChart: true,
+                sequenceDiagram: true
+            });
+            $('#ReplyComment').bind('click', AddComment);
+        });
+
+    </script>
+{% endblock %}

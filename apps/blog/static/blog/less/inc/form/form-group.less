@@ -1,0 +1,108 @@
+.form-group {
+    position: relative;
+    margin-bottom: 32px;
+
+    &:last-child:not(:only-child) {
+        margin-bottom: 0;
+    }
+
+    & > label {
+        font-weight: normal;
+        pointer-events: none;
+        padding-left: 2px;
+        width: 100%;
+        font-size: 11px;
+        margin-bottom: 8px;
+        color: #8a8a8a;
+    }
+
+    .form-control {
+        &:focus {
+            & ~ .form-group__bar {
+                &:before,
+                &:after {
+                    width:50%;
+                }
+            }
+        }
+    }
+}
+
+.form-group--light {
+    .form-control {
+        border-bottom-color: rgba(255,255,255,0.25);
+        color: #fff;
+        font-weight: 500;
+
+        .placeholder(#fff);
+    }
+
+    .input-color-variant(#fff, @mdc-yellow-500, #fff);
+}
+
+.form-group--float {
+    & > label {
+        top: 9px;
+        left: 0;
+        position: absolute;
+        font-size: 13px;
+    }
+
+    .form-control {
+        &:focus {
+            & ~ label {
+                top: -19px;
+                font-size: 11px;
+            }
+        }
+    }
+}
+
+.form-group--active {
+    & > label {
+        top: -19px;
+        font-size: 11px;
+    }
+}
+
+.form-group--float:before, .form-group & > label {
+    .transition(all);
+    .transition-duration(200ms);
+    .transition-timing-function(ease);
+}
+
+.form-group--range {
+    padding-top: 9px;
+}
+
+.form-group--centered {
+    &, .form-control {
+        text-align: center;
+    }
+}
+
+.form-group__bar {
+    position: relative;
+    display: block;
+
+    &:before, &:after {
+        content: '';
+        position: absolute;
+        height: 2px;
+        width: 0;
+        bottom: 0;
+        .transition(all);
+        .transition-duration(200ms);
+        .transition-timing-function(ease);
+        background-color: @mdc-light-blue-500;
+    }
+
+    &:before {
+        left: 50%;
+    }
+
+    &:after {
+        right: 50%;
+    }
+}
+

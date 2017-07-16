@@ -1,0 +1,50 @@
+.four-zero {
+    height: 100vh;
+    background-color: @mdc-amber-300;
+}
+
+.four-zero__content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding: 65px;
+    max-width: 600px;
+    width: 100%;
+    color: #fff;
+
+    h1 {
+        color: #fff;
+        font-size: 100px;
+        font-weight: normal;
+        margin: 0;
+    }
+
+    p {
+        line-height: 170%;
+    }
+
+    @media(max-width: @screen-xs-max) {
+        bottom: auto;
+        top: 0;
+        text-align: center;
+        padding: 20px;
+    }
+}
+
+.four-zero__links {
+    border-top: 1px solid rgba(255,255,255,0.3);
+    padding-top: 22px;
+
+    & > a {
+        color: #fff;
+        text-transform: uppercase;
+        margin-right: 15px;
+        font-weight: 500;
+        border-bottom: 2px solid transparent;
+        padding-bottom: 5px;
+
+        &:hover {
+            border-bottom-color: rgba(255,255,255,0.6);
+        }
+    }
+}

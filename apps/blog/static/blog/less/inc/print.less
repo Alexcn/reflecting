@@ -1,0 +1,37 @@
+@media print {
+    @page {
+        margin: 0;
+        size: auto;
+    }
+
+    body {
+        margin: 0mm 0mm 0mm 0mm !important;
+        padding: 0mm !important;
+    }
+
+    p, .card {
+        page-break-inside: avoid;
+    }
+
+    #header,
+    #footer,
+    .actions {
+        display: none !important;
+    }
+
+    a[href]:after {
+        content: none !important;
+    }
+
+    .detail-amenities__list {
+        & > li {
+            padding: 0;
+            margin-bottom: 10px;
+            text-transform: none;
+
+            &:not(:last-child):after {
+                content: ',';
+            }
+        }
+    }
+}

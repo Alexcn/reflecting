@@ -1,0 +1,72 @@
+.noUi-target {
+    border-radius: 0;
+    box-shadow: none;
+    border: 0;
+}
+
+.noUi-background {
+    background: #dddddd;
+    box-shadow: none;
+}
+
+.noUi-horizontal {
+    height: 2px;
+    margin-left: 3px;
+
+    .noUi-handle {
+        top: -6px;
+        left: -1px;
+    }
+}
+
+.noUi-origin {
+    border-radius: 0;
+}
+
+.noUi-vertical {
+    width: 3px;
+}
+
+.noUi-connect {
+    background: @mdc-light-blue-500;
+    box-shadow: none;
+}
+
+.noUi-horizontal,
+.noUi-vertical {
+    .noUi-handle {
+        width: 15px;
+        height: 15px;
+        border: 0;
+        border-radius: 100%;
+        box-shadow: none;
+        .transition(box-shadow);
+        .transition-duration(200ms);
+        cursor: pointer;
+        position: relative;
+        background-color: @mdc-light-blue-500;
+
+        &:before,
+        &:after {
+            display: none;
+        }
+    }
+
+    .noUi-active {
+        box-shadow: 0 0 0 10px rgba(0,0,0,0.06);
+    }
+}
+
+.noUi-tooltip {
+    border: 0;
+    background: #dddddd;
+    padding: 5px 10px;
+}
+
+.input-slider-values {
+    font-size: 12px;
+    font-weight: 500;
+    color: @input-color;
+    margin: 5px 0 10px;
+    padding: 0 2px;
+}

@@ -1,0 +1,215 @@
+.activity-log {
+    position: relative;
+    padding-bottom: 20px;
+    margin-top: 30px;
+
+    &:before,
+    &:after {
+        position: absolute;
+    }
+
+    &:before {
+        background-color: darken(@hr-bg, 5%);
+        left: 90px;
+        top: 0;
+        width: 1px;
+        height: ~"calc(100% - 15px)";
+        content: '';
+    }
+
+    &:after {
+        bottom: -25px;
+        left: 40px;
+        content: "You've reached end";
+        border: 2px solid darken(@hr-bg, 7%);
+        padding: 8px 16px;
+        border-radius: 2px;
+        font-size: 15px;
+    }
+}
+
+.activity-log__item {
+    position: relative;
+    padding: 70px 0 0 130px;
+
+    @media(max-width: @screen-xs-max) {
+        padding: 70px 0 0 15px;
+    }
+}
+
+.activity-log__date {
+    border: 2px solid darken(@hr-bg, 7%);
+    position: absolute;
+    top: 0;
+    left: 30px;
+    padding: 8px 16px;
+    border-radius: 2px;
+    font-size: 15px;
+    background-color: @body-bg;
+    z-index: 1;
+}
+
+.activity-log__content {
+    position: relative;
+    background-color: #fff;
+    padding: 20px 20px 20px 30px;
+    border-radius: 2px;
+    box-shadow: @card-shadow;
+    margin-bottom: 30px;
+
+    @media(min-width: @screen-sm-min) {
+        max-width: 500px;
+    }
+
+    &:before {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        text-align: center;
+        font-size: 14px;
+        line-height: 30px;
+        color: #fff;
+        position: absolute;
+        left: -16px;
+        top: 50%;
+        margin-top: -15px;
+        font-family: @font-family-icon;
+    }
+}
+
+.activity-log-variants(@color, @icon) {
+    border-left: 3px solid @color;
+
+    &:before {
+        content: @icon;
+        background-color: @color;
+    }
+}
+
+.activity-log__content--listing {
+    .activity-log-variants(@mdc-teal-300, '\f320');
+}
+
+.activity-log__content--lead {
+    .activity-log-variants(@mdc-blue-300, '\f10c');
+}
+
+.activity-log__content--contact {
+    .activity-log-variants(@mdc-purple-300, '\f203');
+}
+
+.activity-log__content--task {
+    .activity-log-variants(@mdc-pink-300, '\f269');
+}
+
+.activity-log__content--notes {
+    .activity-log-variants(@mdc-orange-500, '\f222');
+}
+
+.activity-log__content--calendar {
+    .activity-log-variants(@mdc-light-green-500, '\f332');
+}
+
+.activity-log__content--qa {
+    .activity-log-variants(@mdc-cyan-500, '\f1f6');
+}
+
+.activity-log__content--message {
+    .activity-log-variants(@mdc-blue-grey-400, '\f15a');
+}
+
+
+.activity-log__time {
+    @media(min-width: @screen-sm-min) {
+        &:before,
+        &:after {
+            content: '';
+            position: absolute;
+        }
+
+        position: absolute;
+        left: -127px;
+        padding: 3px 6px;
+        border: 1px solid darken(@hr-bg, 5%);
+        border-radius: 2px;
+        font-size: 12px;
+        min-height: 25px;
+        top: 50%;
+        margin-top: -12px;
+
+        &:before {
+            width: 9px;
+            height: 9px;
+            right: -25px;
+            top: 7px;
+            background-color: darken(@hr-bg, 20%);
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+        &:after {
+            height: 1px;
+            background-color: darken(@hr-bg, 5%);
+            width: 47px;
+            left: 63px;
+            top: 11px;
+        }
+    }
+
+    @media(max-width: @screen-xs-max) {
+        display: none;
+    }
+}
+
+.activity-log__attrs {
+    margin-top: 13px;
+
+    & > span {
+        padding: 3px 10px;
+        display: inline-block;
+        font-size: 12px;
+        border: 1px solid @hr-bg;
+        border-radius: 2px;
+
+        &.activity-log__added {
+            border-color: @mdc-green-400;
+            background-color: @mdc-green-400;
+            color: #fff;
+        }
+
+        &.activity-log__updated {
+            border-color: @mdc-amber-500;
+            background-color: @mdc-amber-500;
+            color: #fff;
+        }
+
+        &.activity-log__removed {
+            border-color: @mdc-red-400;
+            background-color: @mdc-red-400;
+            color: #fff;
+        }
+    }
+}
+
+.activity-log__list {
+    img:not(.img-circle) {
+        border-radius: 2px;
+    }
+}
+
+.activity-log__text {
+    & > a {
+        color: @text-strong;
+    }
+
+    & > small {
+        color: @text-muted;
+        margin-top: 3px;
+    }
+
+    & > a,
+    & > small {
+        display: block;
+        .text-overflow();
+    }
+}

@@ -1,0 +1,227 @@
+{% extends 'blog_base.html' %}
+{% load staticfiles %}
+{% block custom_css %}
+    <!-- Vendors -->
+
+    <!-- Material design colors -->
+    <link href="{% static 'blog/vendors/material-design-iconic-font/dist/css/material-design-iconic-font.min.css' %}" rel="stylesheet">
+
+    <!-- CSS animations -->
+    <link rel="stylesheet" href="{% static 'blog/vendors/animate.min.css' %}">
+
+    <!-- Select2 - Custom Selects -->
+    <link rel="stylesheet" href="{% static 'blog/vendors/select2/dist/css/select2.min.css' %}">
+
+    <!-- rateYo - Ratings -->
+    <link rel="stylesheet" href="{% static 'blog/vendors/src/jquery.rateyo.css' %}">
+
+    <!-- NoUiSlider - Input slider -->
+    <link rel="stylesheet" href="{% static 'blog/vendors/nouislider/distribute/nouislider.min.css' %}">
+
+    <!-- Site -->
+    <link rel="stylesheet" href="{% static 'blog/css/app_1.min.css' %}">
+    <link rel="stylesheet" href="{% static 'blog/css/app_2.min.css' %}">
+
+    <!-- Page Loader JS -->
+    <script src="{% static 'blog/js/page-loader.min.js' %}" async></script>
+    <link rel="stylesheet" href="{% static 'editormd/css/editormd.preview.css' %}"/>
+    <style>
+        .editormd-preview-container, .editormd-html-preview {
+            padding: 0;
+        }
+    </style>
+{% endblock %}
+{% block container %}
+    <section class="section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 col-sm-7">
+                    {% for article in articles.object_list %}
+                        <article class="card">
+                            <div class="card__header">
+                                <h2><a href="{% url 'article' article.url %}" style="color: #2e353b">{{ article.title }}</a></h2>
+
+                                <small>
+                                    <span><span style="font-weight: bold">发布时间</span>：{{ article.created_time }}</span>
+                                    <span><span style="font-weight: bold">浏览</span>（{{ article.read }}）</span>
+                                    <span><span style="font-weight: bold">评论</span>（{{ article.get_comment_num }}）</span>
+                                    <span><span style="font-weight: bold">分类</span>：{{ article.get_categories }}</span>
+                                    <span><span style="font-weight: bold">标签</span>：{{ article.get_tag }}</span>
+                                </small>
+                            </div>
+                            <div class="card__body">
+                                <div id="test-editormd-view{{ article.id }}">
+                        <textarea id="append-test" style="display:none;">
+{{ article.description }}
+                </textarea>
+                                </div>
+                                <div class="blog-more">
+                                    <a href="{% url 'article' article.url %}">阅读全文</a>
+                                </div>
+                            </div>
+                        </article>
+                    {% endfor %}
+                    <nav class="text-center">
+                        <ul class="pagination">
+                            {# 是否有上一页 #}
+                            {% if articles.has_previous %}
+                                <li>
+                                    <a href="?{{ articles.previous_page_number.querystring }}" aria-label="Previous">
+                                        <i class="zmdi zmdi-chevron-left"></i>
+                                    </a>
+                                </li>
+                            {% endif %}
+                            {% for page in articles.pages %}
+                                {% if page %}
+                                    {% ifequal page articles.number %}
+                                        {# 当前页 #}
+                                        <li class="active"><a>{{ page }}</a></li>
+                                    {% else %}
+                                        {# 下一页 #}
+                                        <li><a href="?{{ page.querystring }}">{{ page }}</a></li>
+                                    {% endifequal %}
+                                {% else %}
+                                    {# 页数过多显示什么 #}
+                                    <li class="none"><a href="">...</a></li>
+                                {% endif %}
+                            {% endfor %}
+
+                            {# 是否有下一页 #}
+                            {% if articles.has_next %}
+                                <li>
+                                    <a href="?{{ articles.next_page_number.querystring }}" aria-label="Next">
+                                        <i class="zmdi zmdi-chevron-right"></i>
+                                    </a>
+                                </li>
+                            {% endif %}
+                        </ul>
+                    </nav>
+                </div>
+                <aside class="col-md-4 col-sm-5 hidden-xs">
+                    <div class="card subscribe">
+                        <div class="subscribe__icon">
+                            <img src="{{ MEDIA_URL }}{{ setting.avatar }}">
+                        </div>
+                        <h2 style="color: #2e353b">{{ setting.nickname }}</h2>
+                        <small style="color: #9c9c9c">{{ setting.homedescription }}</small>
+                    </div>
+
+
+                    <div class="card">
+                        <div class="card__header">
+                            <h2>分类</h2>
+                            <small>Hello，Categories！</small>
+                        </div>
+
+                        <div class="list-group">
+                            {% for category in categories %}
+                                <a href="{% url 'index' %}?category={{ category.name }}" class="list-group-item media">
+                                    <strong style="float: left">{{ category.name }}</strong><strong style="float: right">({{ category.categories_article_count }})</strong>
+                                </a>
+                            {% endfor %}
+                            <div class="p-10"></div>
+                        </div>
+                    </div>
+
+
+                    <div class="card tags-list">
+                        <div class="card__header">
+                            <h2>标签</h2>
+                            <small>Hello，tags！</small>
+                        </div>
+                        <div class="card__body">
+                            {% for tag in tags %}
+                                <a href="{% url 'index' %}?tag={{ tag.name }}" class="tags-list__item">#{{ tag.name }}</a>
+                            {% endfor %}
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card__header">
+                            <h2>友情链接</h2>
+                            <small>如果要交换友链，请联系我~</small>
+                        </div>
+                        <div class="list-group">
+                            {% for link in links %}
+                                <a href="{{ link.url }}" class="list-group-item media" target="_blank">
+                                    <div class="media-body list-group__text">
+                                        <strong>{{ link.name }}</strong>
+                                        <small>{{ link.description }}</small>
+                                    </div>
+                                </a>
+                            {% endfor %}
+                            <div class="p-10"></div>
+                        </div>
+
+                    </div>
+                    <div class="card">
+                        <div class="card__header">
+                            <h2>最近评论</h2>
+                        </div>
+                        <div class="list-group">
+                            {% for comment in comments %}
+                                <a class="list-group-item media" href="{% url 'article' comment.article.url %}">
+                                    <div class="pull-left">
+                                        <img src="{{ MEDIA_URL }}{{ comment.user.image }}" alt="" class="list-group__img img-circle" width="45" height="45">
+                                    </div>
+                                    <div class="media-body list-group__text">
+                                        <strong>{{ comment.user.nick_name }}</strong>
+                                        <small class="list-group__text">
+                                            {{ comment.body }}
+                                        </small>
+                                    </div>
+                                </a>
+                            {% endfor %}
+
+                            <div class="p-10"></div>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+{% block custom_js %}
+
+    <!-- Javascript -->
+
+    <!-- jQuery -->
+    <script src="{% static 'blog/vendors/jquery/dist/jquery.min.js' %}"></script>
+
+    <!-- Bootstrap -->
+    <script src="{% static 'blog/vendors/bootstrap/dist/js/bootstrap.min.js' %}"></script>
+
+    <!-- Waves button ripple effects -->
+    <script src="{% static 'blog/vendors/Waves/dist/waves.min.js' %}"></script>
+
+    <!-- IE9 Placeholder -->
+    <!--[if IE 9 ]>
+    <script src="{% static 'blog/vendors/jquery-placeholder/jquery.placeholder.min.js' %}"></script>
+    <![endif]-->
+
+    <script src="{% static 'blog/js/demo/demo.js' %}"></script>
+    <script src="{% static 'editormd/lib/marked.min.js' %}"></script>
+    <script src="{% static 'editormd/lib/prettify.min.js' %}"></script>
+    <script src="{% static 'editormd/lib/raphael.min.js' %}"></script>
+    <script src="{% static 'editormd/lib/underscore.min.js' %}"></script>
+    <script src="{% static 'editormd/lib/sequence-diagram.min.js' %}"></script>
+    <script src="{% static 'editormd/lib/flowchart.min.js' %}"></script>
+    <script src="{% static 'editormd/lib/jquery.flowchart.min.js' %}"></script>
+    <script src="{% static 'editormd/editormd.js' %}"></script>
+    <script type="text/javascript">
+        $(function () {
+            {% for article in articles.object_list %}
+                var testEditormdView{{ article.id }};
+                testEditormdView{{ article.id }} = editormd.markdownToHTML("test-editormd-view{{ article.id }}", {
+                    htmlDecode: "style,script,iframe",
+                    markdownSourceCode: true,
+                    emoji: true,
+                    taskList: true,
+                    tex: true,
+                    flowChart: true,
+                    sequenceDiagram: true
+                });
+            {% endfor %}
+        });
+    </script>
+{% endblock %}

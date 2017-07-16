@@ -1,0 +1,148 @@
+//Listing
+.notes {
+    margin-bottom: 30px;
+
+    & > a {
+        height: 155px;
+        background-color: #fff;
+        display: block;
+        padding: 23px 29px;
+        position: relative;
+
+        &,
+        &:before {
+            border-radius: 2px;
+            box-shadow: 0 1px 1px rgba(0,0,0,0.08);
+        }
+
+        &:before {
+            content: '';
+            position: absolute;
+            width: ~"calc(100% - 10px)";
+            bottom: -5px;
+            left: 5px;
+            z-index: -1;
+            height: 20px;
+            background-color: #fbfbfb;
+
+            .transition(all);
+            .transition-duration(200ms);
+        }
+    }
+
+    &:hover {
+        & > a {
+            background-color: #fbfbfb;
+
+            &:before {
+                bottom: -8px;
+            }
+        }
+
+        .notes__actions {
+            .opacity(1);
+        }
+    }
+}
+
+.notes__title {
+    color: @text-strong;
+    margin-bottom: 13px;
+    font-size: 15px;
+    .text-overflow();
+}
+
+.notes__body {
+    color: @text-color;
+}
+
+.notes__actions {
+    position: absolute;
+    right: 25px;
+    bottom: 14px;
+    font-size: 14px;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    background: rgba(0,0,0,0.7);
+    border-radius: 50%;
+    line-height: 30px;
+    color: #fff;
+    box-shadow: 0 0 4px rgba(0,0,0,0.5);
+    .opacity(0);
+    .transition(all);
+    .transition-duration(200ms);
+    cursor: pointer;
+
+    &:hover {
+        background: rgba(0,0,0,0.9);
+    }
+}
+
+
+//New Note Modal
+.note-view__field {
+    border-bottom: 1px solid @hr-bg;
+
+    input {
+        border: 0;
+        font-size: 15px;
+        padding: 20px 25px 19px;
+        height: auto;
+    }
+}
+
+.note-view__field--tag {
+    padding: 15px 23px 12px;
+}
+
+.note-view__label {
+    float: left;
+    font-size: 16px;
+    color: #9a9a9a;
+    margin: 5px 20px 0 0;
+}
+
+
+//Tags
+.notes--red > a:before { background-color: @mdc-red-400 !important; }
+.notes--blue > a:before { background-color: @mdc-blue-400 !important; }
+.notes--green > a:before { background-color: @mdc-green-400 !important; }
+.notes--amber > a:before { background-color: @mdc-amber-400 !important; }
+.notes--teal > a:before { background-color: @mdc-teal-400 !important; }
+.notes--cyan > a:before { background-color: @mdc-cyan-400 !important; }
+.notes--pink > a:before { background-color: @mdc-pink-400 !important; }
+
+
+//IE9 Fix
+.ie9 {
+    .notes {
+        overflow: hidden;
+        padding-bottom: 6px;
+
+        &:hover {
+            & > a {
+                &:before {
+                    bottom: -5px;
+                }
+            }
+        }
+    }
+
+    .notes__body {
+        height: 110px;
+        overflow: hidden;
+    }
+
+    .notes__title + .notes__body {
+        height: 76px;
+    }
+
+    .note-view__body {
+        border: 0;
+        width: 100%;
+        overflow: auto !important;
+        height: 250px;
+        padding: 25px;
+    }
+}

@@ -1,0 +1,86 @@
+//Title
+.main__title--calendar {
+    padding-right: 65px;
+}
+
+
+//Main Calendar Next/Prev
+.actions--calendar {
+    & > a {
+        & > i {
+            font-size: 30px;
+        }
+    }
+}
+
+
+//Event Colors
+.fc-event--cyan { background-color: @mdc-cyan-400; }
+.fc-event--amber { background-color: @mdc-amber-500; }
+.fc-event--green { background-color: @mdc-green-400; }
+.fc-event--blue { background-color: @mdc-blue-400; }
+.fc-event--teal { background-color: @mdc-teal-400; }
+.fc-event--red { background-color: @mdc-red-400; }
+.fc-event--purple { background-color: @mdc-purple-400; }
+
+
+//Main Calendar Seasonal headers
+[data-calendar-month] {
+    .bg-cover();
+    .transition(all);
+    .transition-duration(300ms);
+}
+
+[data-calendar-month="0"] { background-image: url('../img/calendar/january.jpg'); }
+[data-calendar-month="1"] { background-image: url('../img/calendar/february.jpg'); }
+[data-calendar-month="2"] { background-image: url('../img/calendar/march.jpg'); }
+[data-calendar-month="3"] { background-image: url('../img/calendar/april.jpg'); }
+[data-calendar-month="4"] { background-image: url('../img/calendar/may.jpg'); }
+[data-calendar-month="5"] { background-image: url('../img/calendar/june.jpg'); }
+[data-calendar-month="6"] { background-image: url('../img/calendar/july.jpg'); }
+[data-calendar-month="7"] { background-image: url('../img/calendar/august.jpg'); }
+[data-calendar-month="8"] { background-image: url('../img/calendar/september.jpg'); }
+[data-calendar-month="9"] { background-image: url('../img/calendar/october.jpg'); }
+[data-calendar-month="10"] { background-image: url('../img/calendar/november.jpg'); }
+[data-calendar-month="11"] { background-image: url('../img/calendar/december.jpg'); }
+
+
+//Calendar Widget
+.calendar-widget__body {
+    padding: 0 20px;
+}
+
+.calendar-widget__year {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 15px;
+}
+
+.calendar-widget__day {
+    font-size: 25px;
+    line-height: 100%;
+    color: #fff;
+}
+
+
+//Appointments Widget
+.event-date {
+    width: 70px;
+    text-align: center;
+    border: 1px solid #eee;
+    border-radius: 2px;
+    padding: 5px 5px 2px;
+    margin-top: -3px;
+    background-color: #fff;
+    position: relative;
+}
+
+.event-date__day {
+    display: block;
+    font-size: 20px;
+    line-height: 100%;
+}
+
+.event-date__month-time {
+    color: @text-muted;
+    font-size: 12px;
+}
