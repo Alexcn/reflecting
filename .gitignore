@@ -12,8 +12,6 @@ venv
 .DS_Store
 venv/*
 db.sqlite3
-!media/.gitkepp
-media/*
 fabfile.py
 pm2_start.json
 reflecting.tar.gz
