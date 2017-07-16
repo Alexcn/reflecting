@@ -2,7 +2,7 @@ import random
 from django.core.mail import send_mail
 import string
 from users.models import EmailVerifyCode
-from July.settings import EMAIL_FROM
+from config.settings import EMAIL_FROM
 from users.models import UserProfile
 
 
