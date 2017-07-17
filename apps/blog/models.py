@@ -38,7 +38,7 @@ class Article(models.Model):
     description = models.TextField()
     body = models.TextField()
     created_time = models.DateTimeField(auto_now_add=True)
-    release_time = models.DateTimeField(default='1970-1-1 00:00:00')
+    # release_time = models.DateTimeField(default='1970-1-1 00:00:00')
     updated_time = models.DateTimeField(auto_now=True)
     status = models.CharField(default=0, max_length=1, choices=STATUS_CHOICES)
     read = models.IntegerField(default=0)
