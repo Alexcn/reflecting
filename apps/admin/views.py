@@ -315,10 +315,7 @@ class SettingView(View):
             setting.homedescription = homedescription
             setting.recordinfo = recordinfo
             setting.statisticalcode = statisticalcode
-            try:
-                setting.save()
-                return HttpResponseRedirect(reverse('admin:setting'))
-            except Exception as e:
-                return HttpResponse(setting_form.errors)
+            setting.save()
+            return HttpResponseRedirect(reverse('admin:setting'))
         else:
             return HttpResponse(setting_form.errors)
