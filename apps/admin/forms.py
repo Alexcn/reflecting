@@ -1,5 +1,5 @@
 from django import forms
-from blog.models import *
+from apps.blog.models import *
 
 
 class LinkForm(forms.ModelForm):
