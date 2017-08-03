@@ -5,8 +5,8 @@ from django.contrib.auth import logout
 from django.utils import timezone
 from django.conf import settings
 from .forms import LinkForm, SettingForm
-from users.models import *
-from blog.models import *
+from apps.users.models import *
+from apps.blog.models import *
 from .models import *
 import json
 

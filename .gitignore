@@ -22,4 +22,4 @@ static/admin/*
 static/import_export/*
 static/ueditor/*
 static/xadmin/*
-
+config.py
