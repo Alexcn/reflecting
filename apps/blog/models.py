@@ -58,7 +58,7 @@ class Article(models.Model):
         return tag.strip(',')
 
     def get_comment_num(self):
-        from apps.users.models import Comment
+        from users.models import Comment
         return Comment.objects.filter(article=self.id).count()
 
     def get_tags(self):
