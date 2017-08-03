@@ -73,11 +73,11 @@ class Link(models.Model):
 
 
 class Setting(models.Model):
-    title = models.CharField(max_length=80)
-    keywords = models.CharField(max_length=100)
-    description = models.CharField(max_length=200)
-    nickname = models.CharField(max_length=100)
-    avatar = models.ImageField(upload_to='%Y/%m', max_length=100)
-    homedescription = models.CharField(max_length=150)
-    recordinfo = models.CharField(max_length=100)
-    statisticalcode = models.TextField()
+    title = models.CharField(max_length=80, null=True, blank=True)
+    keywords = models.CharField(max_length=100, null=True, blank=True)
+    description = models.CharField(max_length=200, null=True, blank=True)
+    nickname = models.CharField(max_length=100, null=True, blank=True)
+    avatar = models.ImageField(upload_to='%Y/%m', max_length=100, null=True, blank=True)
+    homedescription = models.CharField(max_length=150, null=True, blank=True)
+    recordinfo = models.CharField(max_length=100, null=True, blank=True)
+    statisticalcode = models.TextField(null=True, blank=True)
