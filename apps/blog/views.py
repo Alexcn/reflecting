@@ -56,7 +56,7 @@ class ArticleListView(View):
 class ArticleDetailView(View):
     def get(self, request, article_url):
         try:
-            article = Article.objects.get(url=article_url)
+            article = Article.objects.get(url=article_url, status='1')
             article.read += 1
             article.save()
             comments = Comment.objects.filter(article=article).order_by('-add_time')
