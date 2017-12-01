@@ -45,5 +45,5 @@ urlpatterns = [
 ]
 
 
-hander404 = 'users.views.page_not_found'
-hander505 = 'users.views.page_errors'
+hander404 = 'page_not_found'
+hander505 = 'page_errors'
