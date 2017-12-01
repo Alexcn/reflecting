@@ -116,10 +116,11 @@ class AboutView(View):
             'url': url, 'reads': reads,
             'setting': setting})
 
-#
-# def page_not_found(request):
-#     return render(request, '404.html')
-#
-#
-# def page_errors(request):
-#     return render(request, '500.html')
+
+def page_not_found(request):
+    return render(request, '404.html')
+
+
+def page_errors(request):
+    return render(request, '500.html')
+
