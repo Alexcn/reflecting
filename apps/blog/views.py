@@ -7,6 +7,7 @@ from .forms import *
 from users.models import Comment, Reply
 from utils.mixin_utils import LoginRequiredMixin
 
+
 __all__ = [
     'ArticleListView',
     'ArticleDetailView',
@@ -114,3 +115,11 @@ class AboutView(View):
             'comments': comments,
             'url': url, 'reads': reads,
             'setting': setting})
+
+
+def page_not_found(request):
+    return render(request, '404.html')
+
+
+def page_errors(request):
+    return render(request, '500.html')
