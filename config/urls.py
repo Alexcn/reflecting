@@ -43,7 +43,7 @@ urlpatterns = [
     url(r'^rss\.xml$', RssSiteNewsFeed()),
     url(r'^atom\.xml$', AtomSiteNewsFeed()),
 ]
-
-
-hander404 = 'page_not_found'
-hander505 = 'page_errors'
+#
+#
+# hander404 = 'page_not_found'
+# hander505 = 'page_errors'
