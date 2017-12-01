@@ -44,6 +44,6 @@ urlpatterns = [
     url(r'^atom\.xml$', AtomSiteNewsFeed()),
 ]
 
-
-hander404 = 'blog.views.page_not_found'
-hander500 = 'blog.views.page_errors'
+#
+# hander404 = 'blog.views.page_not_found'
+# hander500 = 'blog.views.page_errors'
