@@ -1,0 +1,11 @@
+{
+    "name": "reflection",
+    "script": "site_ctl.sh",
+    "max_memory_restart": "2048M",
+    "cwd": "/www/blog/run_dir",
+    "args": "production",
+    "log_date_format": "YYYY-MM-DD HH:mm Z",
+    "error_file": "/www/blog/logs/blog_error.log",
+    "out_file": "/www/blog/logs/blog_run.log",
+    "autorestart": true
+}
