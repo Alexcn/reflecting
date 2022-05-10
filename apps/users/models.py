@@ -1,7 +1,8 @@
 from django.contrib.auth.models import AbstractUser
 from django.db import models
+
+from apps.blog.models import Article
 from utils.default_model import random_nick_name
-from blog.models import Article
 
 __all__ = [
     'UserProfile',
@@ -44,8 +45,8 @@ class Message(models.Model):
 
 
 class Comment(models.Model):
-    user = models.ForeignKey(UserProfile)
-    article = models.ForeignKey(Article, related_name='article_comment')
+    user = models.ForeignKey(UserProfile, on_delete=False)
+    article = models.ForeignKey(Article, related_name='article_comment', on_delete=False)
     body = models.TextField()
     add_time = models.DateTimeField(auto_now_add=True)
     status = models.BooleanField(default=False)
@@ -55,7 +56,7 @@ class Comment(models.Model):
 
 
 class Reply(models.Model):
-    user = models.ForeignKey(UserProfile)
-    comment = models.ForeignKey(Comment)
+    user = models.ForeignKey(UserProfile, on_delete=False)
+    comment = models.ForeignKey(Comment, on_delete=False)
     body = models.TextField()
     add_time = models.DateTimeField(auto_now_add=True)

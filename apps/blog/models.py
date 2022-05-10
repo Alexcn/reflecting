@@ -10,6 +10,8 @@ __all__ = [
     'Setting'
 ]
 
+from apps.users.models import Comment
+
 
 class Categories(models.Model):
     name = models.CharField(max_length=32, unique=True)
@@ -58,7 +60,6 @@ class Article(models.Model):
         return tag.strip(',')
 
     def get_comment_num(self):
-        from users.models import Comment
         return Comment.objects.filter(article=self.id).count()
 
     def get_tags(self):

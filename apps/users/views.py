@@ -3,11 +3,10 @@ from django.contrib.auth import authenticate, login, logout
 from django.core.exceptions import ObjectDoesNotExist
 from django.contrib.auth.hashers import make_password
 from django.contrib.auth.backends import ModelBackend
-from users.models import Message, EmailVerifyCode
 from utils.email_send import send_password_email
 from django.views.generic import View
 from django.utils import timezone
-from .models import UserProfile
+from .models import UserProfile, EmailVerifyCode, Message
 from django.db.models import Q
 from .forms import *
 from utils.mixin_utils import LoginRequiredMixin

@@ -5,8 +5,6 @@ from django.contrib.auth import logout
 from django.utils import timezone
 from django.conf import settings
 from .forms import LinkForm, SettingForm
-from users.models import *
-from blog.models import *
 from .models import *
 import json
 
@@ -29,6 +27,9 @@ __all__ = [
 
 
 # Create your views here.
+from ..blog.models import Categories, Tag, Article, Link, Setting
+from ..users.models import UserProfile, Message, Comment
+
 
 class DashboardView(LoginRequiredMixin, View):
     def get(self, request):

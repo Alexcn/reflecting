@@ -4,7 +4,6 @@ from django.views.generic import View
 from django.db.models import Q
 from .models import *
 from .forms import *
-from users.models import Comment, Reply
 from utils.mixin_utils import LoginRequiredMixin
 
 
@@ -18,6 +17,8 @@ __all__ = [
 
 
 # Create your views here.
+from ..users.models import Comment, Reply
+
 
 class ArticleListView(View):
     def get(self, request):
